@@ -90,6 +90,11 @@
 						</div>
 					</div>
 					<div class="main-nav-end">
+					<c:if test="${!empty nom }">
+					<div style="font-weight:bold !important">
+					<c:out value="${prenom } ${nom }"></c:out>
+					</div>
+					</c:if>
 						<button class="sidebar-toggle transparent-btn" title="Menu"
 							type="button">
 							<span class="sr-only">Toggle menu</span> <span
@@ -157,9 +162,8 @@
 								<li><a href="##"> <i data-feather="user"
 										aria-hidden="true"></i> <span>Mes informations</span>
 								</a></li>
-								<li><a class="danger" href="##"> <i
-										data-feather="log-out" aria-hidden="true"></i> <span>Log
-											out</span>
+								<li><a class="danger" href="<c:url value="/Deconnexion"></c:url>"> <i
+										data-feather="log-out" aria-hidden="true"></i> <span>Déconnexion</span>
 								</a></li>
 							</ul>
 						</div>

@@ -43,55 +43,28 @@
 		<!-- ! Main -->
     <main class="main users chart-page" id="skip-target">
       <div class="container">
-        <h2 class="main-title">Bonjour </h2>
-        <div class="row text-center my-2">
-        <div class="col my-2">
+        <h2 class="main-title my-2">Météo aujourd'hui</h2>
+        <div class="row">
+        <div class="col-xl-4 ">
         
-        <div id="ww_a920196c00efc" v='1.3' loc='id' a='{"t":"ticker","lang":"fr","ids":["wl4529"],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"rgba(0,97,247,1)","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'>Weather Data Source: <a href="https://wetterlang.de/paris_wetter_30_tage/" id="ww_a920196c00efc_u" target="_blank">wetter 30 tage Paris</a></div><script async src="https://app1.weatherwidget.org/js/?id=ww_a920196c00efc"></script>
-        
+<div  id="ww_4b91c79dbcd16" v='1.3' loc='id' a='{"t":"horizontal","lang":"fr","ids":[],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"rgba(0,97,247,1)","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'>Weather Data Source: <a href="https://wetterlang.de/paris_wetter_30_tage/" id="ww_4b91c79dbcd16_u" target="_blank">Paris wetter 30 tage</a></div><script async src="https://app1.weatherwidget.org/js/?id=ww_4b91c79dbcd16"></script>
         
         </div>
-         
+        <div class="col-xl-8 my-auto">
+        <div id="ww_5b3e74b852e56" v='1.3' loc='id' a='{"t":"ticker","lang":"fr","ids":["wl4529"],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"rgba(0,97,247,1)","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'>Weather Data Source: <a href="https://wetterlang.de/paris_wetter_30_tage/" id="ww_5b3e74b852e56_u" target="_blank">wetterlang.de</a></div><script async src="https://app1.weatherwidget.org/js/?id=ww_5b3e74b852e56"></script>
         </div>
-        <div class="row text-center">
-        <div class="col">
+        </div>
+        <div class="row">
+      
+       <div class="col">
+       <h2 class="main-title  my-1">Actualités </h2>
        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
 <div class="elfsight-app-75292b17-cf39-4276-9e01-57618f7e11bc"></div>
         </div>
-       
         </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-       
-       
         
       </div>
     </main>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 
 			<!-- ! Footer -->
 			<c:import url="/Footer"></c:import>

@@ -12,6 +12,6 @@ public boolean Create (T object);
 	
 	public boolean Delete(T object); 
 	
-	public boolean Findby(T object);
+	public ArrayList<T> Findby (T object);
 
 }

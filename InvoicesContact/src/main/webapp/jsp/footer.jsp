@@ -15,9 +15,11 @@
 	</div>
 </footer>
 	</div>
-	
+
+<!-- Alerts -->
+<script src="js/modal_alerts"></script>
 <!-- Chart library -->
-<script src="./plugins/chart.min.js"></script>
+<script src="plugins/chart.min.js"></script>
 <!-- Icons library -->
 <script src="plugins/feather.min.js"></script>
 <!-- Custom scripts -->

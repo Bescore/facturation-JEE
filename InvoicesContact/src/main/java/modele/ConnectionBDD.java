@@ -19,7 +19,7 @@ public class ConnectionBDD {
 
          try {
     connect = DriverManager.getConnection(url+dbName,user,pwd);
-    System.out.println("connecté !");
+    System.out.println("connect ok");
 
     } catch (SQLException e) {
    

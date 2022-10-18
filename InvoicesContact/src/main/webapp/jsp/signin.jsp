@@ -25,26 +25,37 @@
   <article class="sign-up">
     <h1 class="text-light sign-up__title">Bienvenue !</h1>
     <p class=" text-dark sign-up__subtitle">connectez-vous pour continuer</p>
-    <form class="sign-up-form form" action="" method="">
+    <form class="sign-up-form form" method="post">
       <label class="form-label-wrapper">
         <p class="form-label">Email</p>
-        <input class="form-input" type="email" placeholder="entrer votre email" required>
+        <input  name="email" class="form-input" type="email" placeholder="entrer votre email" required>
       </label>
       <label class="form-label-wrapper">
         <p class="form-label">Mot de passe</p>
-        <input class="form-input" type="password" placeholder="entrer votre mot de passe" required>
+        <input name="password" class="form-input" type="password" placeholder="entrer votre mot de passe" required>
       </label>
       <a class="link-info forget-link" href="##">Mot de passe oublié?</a>
-      <label class="form-checkbox-wrapper">
-        <input class="form-checkbox" type="checkbox" required>
-        <span class="form-checkbox-label">Se rappeler de moi la prochaine fois</span>
-      </label>
-      <button class="form-btn primary-default-btn transparent-btn">Se connecter</button>
+      <button name="connecter" class="form-btn primary-default-btn transparent-btn">Se connecter</button>
     </form>
+    <c:if test="${erreur_connexion==1}">
+
+<div id="alert" class="alert alert-danger text-center my-2 p-0">
+	<strong>Echec !</strong> données incorrecte ou email inconnu.
+</div>
+</c:if>
   </article>
+ <!-- ALERT --> 
+ 
+  
+  
+  
 </main>
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<!-- Alerts -->
+<script src="js/modal_alert.js"></script>
 <!-- Chart library -->
-<script src="./plugins/chart.min.js"></script>
+<script src="plugins/chart.min.js"></script>
 <!-- Icons library -->
 <script src="plugins/feather.min.js"></script>
 <!-- Custom scripts -->
