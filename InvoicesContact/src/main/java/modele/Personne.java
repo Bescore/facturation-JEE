@@ -1,14 +1,14 @@
 package modele;
 
 public class Personne {
-	protected int id_personne;
-	protected String nom;
-	protected String prenom;
-	protected String telephone;
-	protected String email;
-	protected String adresse;
-	protected int code_postale;
-	protected int isActive_personne;
+	private int id_personne;
+	private String nom;
+	private String prenom;
+	private String telephone;
+	private String email;
+	private String adresse;
+	private int code_postale;
+	private int isActive_personne;
 
 	public Personne() {
 	}
@@ -87,6 +87,13 @@ public class Personne {
 
 	public void setIsActive_personne(int isActive_personne) {
 		this.isActive_personne = isActive_personne;
+	}
+
+	@Override
+	public String toString() {
+		return "Personne [id_personne=" + id_personne + ", nom=" + nom + ", prenom=" + prenom + ", telephone="
+				+ telephone + ", email=" + email + ", adresse=" + adresse + ", code_postale=" + code_postale
+				+ ", isActive_personne=" + isActive_personne + "]";
 	}
 
 	

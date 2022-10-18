@@ -4,6 +4,7 @@ public class Facture {
 	private int id_facture;
 	private String identifiant;
 	private float somme;
+	private float nbr_totale_heure;
 	private int payee;
 	private Mission mission;
 	private int isActive_facture;
@@ -12,11 +13,13 @@ public class Facture {
 
 	}
 
-	public Facture(int id_facture, String identifiant, float somme, int payee, Mission mission, int isActive_facture) {
+	public Facture(int id_facture, String identifiant, float somme, float nbr_totale_heure, int payee, Mission mission,
+			int isActive_facture) {
 		super();
 		this.id_facture = id_facture;
 		this.identifiant = identifiant;
 		this.somme = somme;
+		this.nbr_totale_heure = nbr_totale_heure;
 		this.payee = payee;
 		this.mission = mission;
 		this.isActive_facture = isActive_facture;
@@ -44,6 +47,14 @@ public class Facture {
 
 	public void setSomme(float somme) {
 		this.somme = somme;
+	}
+
+	public float getNbr_totale_heure() {
+		return nbr_totale_heure;
+	}
+
+	public void setNbr_totale_heure(float nbr_totale_heure) {
+		this.nbr_totale_heure = nbr_totale_heure;
 	}
 
 	public int getPayee() {
