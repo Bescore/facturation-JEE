@@ -6,21 +6,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import modele.GetCookie;
 
 /**
- * Servlet implementation class Home
+ * Servlet implementation class Client
  */
-@WebServlet("/Home")
-public class Home extends HttpServlet {
+@WebServlet("/Client")
+public class Client extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Home() {
+    public Client() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,18 +28,8 @@ public class Home extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		HttpSession session = request.getSession();
-		// recuperer le token en session
-		String token = String.valueOf(session.getAttribute("token"));
-
-		// on utilise la fonction qui va recuperer le cookie
-		String cookie = GetCookie.recupererCookie(request, token);
-		if (cookie.equals(token)) {
 		
-		request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
-		}else {
-			response.sendRedirect(request.getContextPath() + "/Deconnexion");
-		}
+		request.getRequestDispatcher("jsp/client.jsp").forward(request, response);
 	}
 
 	/**

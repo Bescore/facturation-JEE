@@ -31,7 +31,7 @@
 							</span>
 						</a>
 							<ul class="cat-sub-menu">
-								<li><a href="posts.html">Gérer les clients</a></li>
+								<li><a href="<c:url value="/Client"></c:url>">Gérer les clients</a></li>
 							</ul></li>
 						<li><a class="show-cat-btn" href="##"> <span
 								class="icon edit" aria-hidden="true"></span>Missons et Activités <span
@@ -43,6 +43,7 @@
 							<ul class="cat-sub-menu">
 								<li><a href="media-01.html">Gérer les missions</a></li>
 								<li><a href="media-02.html">Gérer les activités</a></li>
+								<li><a href='<c:url value="/TypeActivite"></c:url>'>Gérer types d'activités</a></li>
 							</ul></li>
 						<li><a class="show-cat-btn" href="##"> <span
 								class="icon paper" aria-hidden="true"></span>Comptabilité <span
@@ -91,7 +92,7 @@
 					</div>
 					<div class="main-nav-end">
 					<c:if test="${!empty nom }">
-					<div style="font-weight:bold !important">
+					<div class="text-primary" style="font-weight:bold !important">
 					<c:out value="${prenom } ${nom }"></c:out>
 					</div>
 					</c:if>

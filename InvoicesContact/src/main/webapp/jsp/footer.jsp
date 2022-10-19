@@ -16,14 +16,16 @@
 </footer>
 	</div>
 
+<!-- fontawsome cdn -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <!-- Alerts -->
-<script src="js/modal_alerts"></script>
+<script defer src="js/modal_alerts"></script>
 <!-- Chart library -->
-<script src="plugins/chart.min.js"></script>
+<script defer src="plugins/chart.min.js"></script>
 <!-- Icons library -->
-<script src="plugins/feather.min.js"></script>
+<script defer src="plugins/feather.min.js"></script>
 <!-- Custom scripts -->
-<script src="js/script.js"></script>
+<script defer src="js/script.js"></script>
 </body>
 
 </html>

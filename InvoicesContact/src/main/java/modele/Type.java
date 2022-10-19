@@ -3,17 +3,15 @@ package modele;
 public class Type {
 	private int id_type;
 	private String type_mission;
-	private Mission mission;
 
 	public Type() {
 
 	}
 
-	public Type(int id_type, String type_mission, Mission mission) {
+	public Type(int id_type, String type_mission) {
 		super();
 		this.id_type = id_type;
 		this.type_mission = type_mission;
-		this.mission = mission;
 	}
 
 	public int getId_type() {
@@ -32,12 +30,9 @@ public class Type {
 		this.type_mission = type_mission;
 	}
 
-	public Mission getMission() {
-		return mission;
-	}
-
-	public void setMission(Mission mission) {
-		this.mission = mission;
+	@Override
+	public String toString() {
+		return "Type [id_type=" + id_type + ", type_mission=" + type_mission + "]";
 	}
 
 	

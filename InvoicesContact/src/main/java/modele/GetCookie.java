@@ -13,7 +13,7 @@ public class GetCookie {
 		//operer un for pour parcourir les cookies
 		for (Cookie cookie : cookies) {
 			//si il trouve le cookie
-			if (cookie.getName().equals("INC_RESET")) {
+			if (cookie.getName().equals("INC_AUTH")) {
 				//si le cookie est égale à celui contenu dans la session
 				if (sessionToken.equals(cookie.getValue())) {
 					//cookie devient la variable initiaisé plus haut

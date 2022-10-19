@@ -58,7 +58,7 @@
       
        <div class="col">
        <h2 class="main-title  my-1">Actualités </h2>
-       <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+       <script defer src="https://apps.elfsight.com/p/platform.js"></script>
 <div class="elfsight-app-75292b17-cf39-4276-9e01-57618f7e11bc"></div>
         </div>
         </div>
