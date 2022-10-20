@@ -34,7 +34,7 @@
 								<li><a href="<c:url value="/Client"></c:url>">Gérer les clients</a></li>
 							</ul></li>
 						<li><a class="show-cat-btn" href="##"> <span
-								class="icon edit" aria-hidden="true"></span>Missons et Activités <span
+								class="icon edit" aria-hidden="true"></span>Missions et Activités <span
 								class="category__btn transparent-btn" title="Open list">
 									<span class="sr-only">Open list</span> <span
 									class="icon arrow-down" aria-hidden="true"></span>

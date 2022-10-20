@@ -5,14 +5,14 @@ public class Mission {
 	private float tarif;
 	private int isActive_mission;
 	private int en_cours;
-	private Client client;
+	private Clients client;
 	private Type type;
 
 	public Mission() {
 
 	}
 
-	public Mission(int id_mission, float tarif, int isActive_mission, int en_cours, Client client, Type type) {
+	public Mission(int id_mission, float tarif, int isActive_mission, int en_cours, Clients client, Type type) {
 		super();
 		this.id_mission = id_mission;
 		this.tarif = tarif;
@@ -54,11 +54,11 @@ public class Mission {
 		this.en_cours = en_cours;
 	}
 
-	public Client getClient() {
+	public Clients getClient() {
 		return client;
 	}
 
-	public void setClient(Client client) {
+	public void setClient(Clients client) {
 		this.client = client;
 	}
 

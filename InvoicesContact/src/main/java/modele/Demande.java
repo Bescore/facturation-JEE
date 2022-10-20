@@ -6,13 +6,13 @@ public class Demande {
 	private String date;
 	private String heure;
 	private String duree;
-	private Client client;
+	private Clients client;
 
 	public Demande() {
 
 	}
 
-	public Demande(int id_demande, Type type, String date, String heure, String duree, Client client) {
+	public Demande(int id_demande, Type type, String date, String heure, String duree, Clients client) {
 		super();
 		this.id_demande = id_demande;
 		this.type = type;
@@ -62,11 +62,11 @@ public class Demande {
 		this.duree = duree;
 	}
 
-	public Client getClient() {
+	public Clients getClient() {
 		return client;
 	}
 
-	public void setClient(Client client) {
+	public void setClient(Clients client) {
 		this.client = client;
 	}
 
