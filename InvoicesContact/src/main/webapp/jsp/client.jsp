@@ -51,8 +51,8 @@
 
 
 
-						<div class="row my-2">
-							<div class="col-12 col-xl-6 my-2 ">
+						<div class="row my-2 ">
+							<div class="col-12 col-xl-6 my-2  ">
 								<div class="card">
 									<div class="card-body">
 										<h5 class="card-title">Ajouter / Modifier / Supprimer</h5>
@@ -92,7 +92,7 @@
 											</div>
 											<div class="mb-3 ">
 												<label for="exampleInputPassword1" class="form-label">Code
-													postale</label> <input name="code_postale"
+													postale</label> <input min="0" size="5" name="code_postale"
 													title="code postale exclusivement" type="number"
 													class="form-control border" id="exampleInputPassword1">
 											</div>
@@ -237,20 +237,42 @@
 											<div class="mb-3 ">
 												<label for="exampleInputPassword1" class="form-label">Code
 													postale</label> <input name="code_postale"
-													value="${client_a_modifier.code_postale }"
+													min="0" size="5" value="${client_a_modifier.code_postale }"
 													title="code postale exclusivement" type="number"
 													class="form-control border" id="exampleInputPassword1">
 											</div>
 											<button name="modifier" type="submit" class="btn btn-primary">
 												<i class="fa-regular fa-pen-to-square mx-4"></i>
 											</button>
-											<button name="delete_client" type="submit"
-												class="btn btn-primary my-3">
+											<button type="button" data-bs-toggle="modal"
+												data-bs-target="#exampleModal" class="btn btn-primary my-3">
 												<i class="fa-solid fa-trash-can mx-4"></i>
 											</button>
 											<button name="" type="submit" class="btn btn-primary">
 												<i class="fa-solid fa-rotate-left"></i>
 											</button>
+											<!-- separation modale -->
+											<!-- Modal -->
+											<div class="modal fade" id="exampleModal" tabindex="-1"
+												aria-labelledby="exampleModalLabel" aria-hidden="true">
+												<div class="modal-dialog modal-dialog-centered">
+													<div class="modal-content">
+														<div class="modal-header">
+															<h5 class="modal-title" id="exampleModalLabel">Suppression</h5>
+															<button type="button" class="btn-close"
+																data-bs-dismiss="modal" aria-label="Close"></button>
+														</div>
+														<div class="modal-body">Voulez-vous vraiment
+															supprimer ce client ?</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-outline-primary"
+																data-bs-dismiss="modal">Non</button>
+															<button type="submit" name="delete_client"
+																class="btn btn-outline-danger">Oui</button>
+														</div>
+													</div>
+												</div>
+											</div>
 										</form>
 									</div>
 								</div>

@@ -118,7 +118,6 @@ public class Client extends HttpServlet {
 			//rechercher l'utilisateur et ses infos (by id) et les renvoyer au jsp
 			 request.setAttribute("client_a_modifier", newClientDao.FindbyId(idClient));
 			 
-			 System.out.println("hey");
 			 
 		}
 		//MODIFIER LE CLIENT(SI L'AFFICHAGE DU CLIENT DANS LES CHAMPS S'EST BIEN PASSEE)

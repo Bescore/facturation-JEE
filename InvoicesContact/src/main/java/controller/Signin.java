@@ -58,7 +58,6 @@ public class Signin extends HttpServlet {
 		// recuperer les données du formulaire
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		System.out.println(email+" "+password);
 // verifier le pattern
 		if (Pattern.matches("^[a-zA-Z0-9._%-]+[@]+[a-zA-Z0-9.-]+[.]+[a-zA-Z]{2,4}$", email) && Pattern
 				.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}.]:;',?/*~$^+=<>]).{8,20}$", password)) {

@@ -41,7 +41,7 @@
 							</span>
 						</a>
 							<ul class="cat-sub-menu">
-								<li><a href="media-01.html">Gérer les missions</a></li>
+								<li><a href='<c:url value="/Mission"></c:url>'>Gérer les missions</a></li>
 								<li><a href="media-02.html">Gérer les activités</a></li>
 								<li><a href='<c:url value="/TypeActivite"></c:url>'>Gérer types d'activités</a></li>
 							</ul></li>
