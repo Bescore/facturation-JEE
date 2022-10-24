@@ -148,10 +148,9 @@
 									<form method="post" class="table-responsive">
 										<h5 class="card-title">Tableau des clients</h5>
 
-										<table class="table table-striped ">
+										<table class="table table-striped text-center table-bordered">
 											<thead>
 												<tr>
-													<th scope="col">#</th>
 													<th scope="col">Nom</th>
 													<th scope="col">Prenom</th>
 													<th scope="col">Téléphone</th>
@@ -165,8 +164,6 @@
 												<c:if test="${!empty clients}">
 													<c:forEach items="${clients}" var="element">
 														<tr>
-															<th scope="row"><c:out
-																	value="${element.id_personne }"></c:out></th>
 															<td><c:out value="${element.nom }"></c:out></td>
 															<td><c:out value="${element.prenom }"></c:out></td>
 															<td><c:out value="${element.telephone }"></c:out></td>
@@ -201,6 +198,7 @@
 										<h5 class="card-title">Ajouter / Modifier / Supprimer</h5>
 										<form method="post">
 											<div class="mb-3 ">
+											<input name="idClient" hidden="hidden" value="${client_a_modifier.id_personne}">
 												<label for="exampleInputPassword1" class="form-label">Nom</label>
 												<input name="nom" value="${client_a_modifier.nom }"
 													title="texte sans accents, sans caractères spéciaux"
@@ -236,8 +234,8 @@
 											</div>
 											<div class="mb-3 ">
 												<label for="exampleInputPassword1" class="form-label">Code
-													postale</label> <input name="code_postale"
-													min="0" size="5" value="${client_a_modifier.code_postale }"
+													postale</label> <input name="code_postale" min="0" size="5"
+													value="${client_a_modifier.code_postale }"
 													title="code postale exclusivement" type="number"
 													class="form-control border" id="exampleInputPassword1">
 											</div>

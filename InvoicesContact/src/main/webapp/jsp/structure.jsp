@@ -34,15 +34,14 @@
 								<li><a href="<c:url value="/Client"></c:url>">Gérer les clients</a></li>
 							</ul></li>
 						<li><a class="show-cat-btn" href="##"> <span
-								class="icon edit" aria-hidden="true"></span>Missions et Activités <span
+								class="icon edit" aria-hidden="true"></span>Activités <span
 								class="category__btn transparent-btn" title="Open list">
 									<span class="sr-only">Open list</span> <span
 									class="icon arrow-down" aria-hidden="true"></span>
 							</span>
 						</a>
 							<ul class="cat-sub-menu">
-								<li><a href='<c:url value="/Mission"></c:url>'>Gérer les missions</a></li>
-								<li><a href="media-02.html">Gérer les activités</a></li>
+								<li><a href='<c:url value="/Mesheures"></c:url>'>Mes heures</a></li>
 								<li><a href='<c:url value="/TypeActivite"></c:url>'>Gérer types d'activités</a></li>
 							</ul></li>
 						<li><a class="show-cat-btn" href="##"> <span
@@ -58,11 +57,6 @@
 								<li><a href="<c:url value="/Statistiques"></c:url>">Statistiques</a></li>
 							</ul></li>
 						<li>
-					</ul>
-					<span class="system-menu__title">actions</span>
-					<ul class="sidebar-body-menu">
-						<li><a href="<c:url value="/Startactivity"></c:url>"><span class="icon setting"
-								aria-hidden="true"></span>Démarrer activité</a></li>
 					</ul>
 				</div>
 			</div>

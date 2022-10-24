@@ -127,9 +127,14 @@ public class Client extends HttpServlet {
 				&& Pattern.matches("^[a-zA-Z0-9._%-]+[@]+[a-zA-Z0-9.-]+[.]+[a-zA-Z]{2,4}$", email)
 				&& Pattern.matches("[0-9]{1,3}(?:(?:[,. ]){1}[-a-zA-Zàâäéèêëïîôöùûüç]+)+", adresse)) {
 			
+			System.out.println(Pattern.matches("^[a-zA-Z0-9._%-]+[@]+[a-zA-Z0-9.-]+[.]+[a-zA-Z]{2,4}$", email));
+			//recuperer l'id  du client selectionné
+			int idClient=Integer.valueOf(request.getParameter("idClient"));
+			
 			// creer un nouveau client
 			Clients newClient = new Clients();
 			
+			newClient.setId_personne(idClient);
 			newClient.setNom(nom);
 			newClient.setPrenom(prenom);
 			newClient.setTelephone(telephone);

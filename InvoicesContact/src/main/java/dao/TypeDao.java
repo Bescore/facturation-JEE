@@ -19,6 +19,7 @@ public class TypeDao implements Interface <Type> {
 			sql.setString(1, object.getType_mission());
 			
 			sql.executeUpdate();
+			sql.close();
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -48,7 +49,8 @@ public class TypeDao implements Interface <Type> {
 
 				typeTab.add(newType);
 			}
-			
+			sql.close();
+			rs.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.getMessage();
@@ -66,6 +68,7 @@ public class TypeDao implements Interface <Type> {
 			sql.setInt(2, object.getId_type());
 			
 			sql.executeUpdate();
+			sql.close();
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -83,6 +86,7 @@ public class TypeDao implements Interface <Type> {
 			sql.setInt(1, object.getId_type());
 			
 			sql.executeUpdate();
+			sql.close();
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception

@@ -31,7 +31,7 @@ public class UtilisateurDao implements Interface <Utilisateur> {
 					sql.setString(4, object.getPassword());
 
 					sql.executeUpdate();
-					System.out.println("utilisateur créé");
+					sql.close();
 					return true;
 				} catch (Exception e) {
 					// TODO: handle exception
@@ -90,7 +90,9 @@ BCrypt encoder = new BCrypt();
 				//ajouter le user au tableau
 				userstab.add(user);
 				}
-			}	
+			}
+			sql.close();
+			rs.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.getMessage();

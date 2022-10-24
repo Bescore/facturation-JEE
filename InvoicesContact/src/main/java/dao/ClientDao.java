@@ -26,6 +26,7 @@ public class ClientDao implements Interface <Clients> {
 			sql.setInt(6, object.getCode_postale());
 			
 			sql.executeUpdate();
+			sql.close();
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -59,7 +60,8 @@ public class ClientDao implements Interface <Clients> {
 				
 				clientsTab.add(newClients);
 			}
-			
+			sql.close();
+			rs.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.getMessage();
@@ -71,7 +73,7 @@ public class ClientDao implements Interface <Clients> {
 	public boolean Update(Clients object) {
 		// TODO Auto-generated method stub
 		try {
-			PreparedStatement sql = connect.prepareStatement("Update client SET nom=?,prenom=?,telephone=?,email=?,adresse=?,code_postale=? WHERE email=?");
+			PreparedStatement sql = connect.prepareStatement("Update client SET nom=?,prenom=?,telephone=?,email=?,adresse=?,code_postale=? WHERE id_client=?");
 			
 			sql.setString(1, object.getNom());
 			sql.setString(2, object.getPrenom());
@@ -79,10 +81,11 @@ public class ClientDao implements Interface <Clients> {
 			sql.setString(4, object.getEmail());
 			sql.setString(5, object.getAdresse());
 			sql.setInt(6, object.getCode_postale());
-			sql.setString(7, object.getEmail());
+			sql.setInt(7, object.getId_personne());
 			
 			
 			sql.executeUpdate();
+			sql.close();
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -100,7 +103,7 @@ public class ClientDao implements Interface <Clients> {
 			sql.setString(1, object.getEmail());
 			
 			sql.executeUpdate();
-			System.out.println("delete");
+			sql.close();
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -139,7 +142,8 @@ public class ClientDao implements Interface <Clients> {
 				
 				return newClients;	
 			}
-			
+			sql.close();
+			rs.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.getMessage();
