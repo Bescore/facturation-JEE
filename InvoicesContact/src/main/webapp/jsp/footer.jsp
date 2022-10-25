@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
 <!-- ! Footer -->
 <footer class="footer">
 	<div class="container footer--flex">
@@ -14,7 +13,13 @@
 		</ul>
 	</div>
 </footer>
-	</div>
+<div id="fademe" style="height:100%;width:100%; background-color:white; position:absolute; top:0;right:0; z-index:10;"></div>
+
+<script>
+$( document ).ready(function() {
+$('#fademe').fadeOut(500);
+});
+</script>
 
 <!-- fontawsome cdn -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -26,6 +31,6 @@
 <script defer src="plugins/feather.min.js"></script>
 <!-- Custom scripts -->
 <script defer src="js/script.js"></script>
-</body>
 
+</body>
 </html>

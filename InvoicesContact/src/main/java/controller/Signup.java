@@ -50,6 +50,7 @@ public class Signup extends HttpServlet {
 		// recuperer les informations du formulaire au submit
 		String email = request.getParameter("email");
 		String nom = request.getParameter("nom");
+		String telephone=request.getParameter("telephone");
 		String prenom = request.getParameter("prenom");
 		String password = request.getParameter("password");
 		String confirm_password = request.getParameter("confirm_password");
@@ -62,7 +63,7 @@ public class Signup extends HttpServlet {
 				&& password.equals(confirm_password)) {
 
 			if (request.getParameter("connecter") != null && !email.isEmpty() && !nom.isEmpty() && !prenom.isEmpty()
-					&& !password.isEmpty() && !confirm_password.isEmpty()) {
+					&& !password.isEmpty() && !confirm_password.isEmpty() &&!telephone.isEmpty()) {
 				
 				// intancier et préparer le modèle
 				Utilisateur newUser = new Utilisateur();
@@ -71,6 +72,7 @@ public class Signup extends HttpServlet {
 				newUser.setEmail(email);
 				newUser.setNom(nom);
 				newUser.setPrenom(prenom);
+				newUser.setTelephone(telephone);
 				newUser.setPassword(password);
 				
 				// instancier utilisateurDao et faire le create dans la BDD
@@ -79,7 +81,11 @@ public class Signup extends HttpServlet {
 				//creer un le user
 				newUserDao.Create(newUser);
 
-
+				response.sendRedirect(request.getContextPath() + "/Signup");
+				return;
+			}else {
+				doGet(request, response);
+				return;
 			}
 		}
 

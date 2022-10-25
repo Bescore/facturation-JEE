@@ -23,12 +23,13 @@ public class UtilisateurDao implements Interface <Utilisateur> {
 				object.setPassword(encoder.hashpw(object.getPassword(), BCrypt.gensalt()));
 				
 				try {
-					PreparedStatement sql = connect.prepareStatement("INSERT INTO utilisateur(nom,prenom,email,password) VALUES(?,?,?,?)");
+					PreparedStatement sql = connect.prepareStatement("INSERT INTO utilisateur(nom,prenom,email,password,telephone) VALUES(?,?,?,?,?)");
 					
 					sql.setString(1, object.getNom());
 					sql.setString(2, object.getPrenom());
 					sql.setString(3, object.getEmail());
 					sql.setString(4, object.getPassword());
+					sql.setString(5, object.getTelephone());
 
 					sql.executeUpdate();
 					sql.close();
@@ -84,6 +85,9 @@ BCrypt encoder = new BCrypt();
 				user.setNom(rs.getString("nom"));
 				user.setPrenom(rs.getString("prenom"));
 				user.setEmail(rs.getString("email"));
+				user.setTelephone(rs.getString("telephone"));
+				user.setAdresse(rs.getString("adresse"));
+				user.setCode_postale(rs.getInt("code_postale"));
 				user.setPassword(rs.getString("password"));
 				user.setIsActive_personne(rs.getInt("isActive_personne"));
 				

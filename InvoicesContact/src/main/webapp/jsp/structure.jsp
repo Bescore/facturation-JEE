@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
     <!--Sidebar-->
     <aside class="sidebar">
 			<div class="sidebar-start">
@@ -144,7 +143,7 @@
 							</ul>
 						</div>
 						<div class="nav-user-wrapper">
-							<button href="##" class="nav-user-btn dropdown-btn"
+							<button  class="nav-user-btn dropdown-btn"
 								title="profil" type="button">
 								<span class="sr-only">My profile</span> <span
 									class="nav-user-img"> <picture>

@@ -116,4 +116,7 @@ public class ActiviteJournaliere {
 				+ isActive_activite + ", client=" + client + ", type=" + type + ", tarif=" + tarif + "]";
 	}
 
+
+	
+	
 }

@@ -99,6 +99,9 @@ public class Signin extends HttpServlet {
 					session.setAttribute("nom", usertab.get(0).getNom());
 					session.setAttribute("prenom", usertab.get(0).getPrenom());
 					session.setAttribute("email", usertab.get(0).getEmail());
+					session.setAttribute("telephone", usertab.get(0).getTelephone());
+					session.setAttribute("adresse", usertab.get(0).getAdresse());
+					session.setAttribute("code_postale", usertab.get(0).getCode_postale());
 					session.setAttribute("mot_de_passe", usertab.get(0).getPassword().substring(0, 10));
 					session.setAttribute("id_user", usertab.get(0).getId_personne());
 					session.setAttribute("isconnected", 1);

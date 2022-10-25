@@ -41,6 +41,10 @@
 				</label> <label class="form-label-wrapper">
 					<p class="form-label">Email</p> <input name="email" class="form-input"
 					type="email" required>
+				</label>
+				<label class="form-label-wrapper">
+					<p class="form-label">Téléphone</p> <input min="0" name="telephone" class="form-input"
+					type="number" required>
 				</label> <label class="form-label-wrapper">
 					<p class="form-label">Mot de passe</p> <input name="password" class="form-input"
 					type="password" required>

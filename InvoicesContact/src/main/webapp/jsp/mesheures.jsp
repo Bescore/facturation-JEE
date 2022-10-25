@@ -7,6 +7,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Home</title>
+
+<!-- jquery cdn -->
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+	integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+	crossorigin="anonymous"></script>
 <!-- bootstrap css -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -54,127 +59,228 @@
 									<h5 class="my-3">Mes heures</h5>
 									<h6 class="my-3">Client</h6>
 
+
 									<select name="client" class="form-select"
 										aria-label="Default select example">
-
-										<option value=""><c:out value=""></c:out></option>
-
+										<c:forEach items="${clients}" var="element">
+											<option value="${element.id_personne }"><c:out
+													value=" ${element.nom } ${element.prenom }"></c:out></option>
+										</c:forEach>
 									</select>
 									<h6 class="my-3">Mois</h6>
 									<select name="mois" class="form-select"
 										aria-label="Default select example">
 
-										<option value=""><c:out value=""></c:out></option>
+										<option value="1">Janvier</option>
+										<option value="2">Février</option>
+										<option value="3">Mars</option>
+										<option value="4">Avril</option>
+										<option value="5">Mai</option>
+										<option value="6">Juin</option>
+										<option value="7">Juillet</option>
+										<option value="8">Août</option>
+										<option value="9">Septembre</option>
+										<option value="10">Octobre</option>
+										<option value="11">Novembre</option>
+										<option value="12">Décembre</option>
 
 									</select>
 									<h6 class="my-3">Année</h6>
 									<div>
-										<input value="2022" type="number" min="2022" size="4">
+										<input name="annee" value="${annee}" type="number" min="2022"
+											size="4">
 									</div>
-									<button name="selectionner_mois" type="submit"
+									<button name="selectionner" type="submit"
 										class="btn btn-primary my-4">Selectionner client</button>
 
 								</div>
-								<div></div>
+								<c:if test="${!empty erreur }">
+									<div class="container">
+										<div class="alert alert-danger" role="alert">
+											<i class="fa-solid fa-triangle-exclamation mx-2"></i>Pas de
+											données à ces dates
+										</div>
+									</div>
+								</c:if>
 							</div>
 						</div>
+						<c:if test="${ !empty activites}">
+							<div class="col col-xl my-2 ">
+								<div class="row">
+									<div class="col col-xl my-1 ">
 
-						<div class="col col-xl my-2 ">
-							<div class="row">
+										<div class="card text-center ">
+											<div class="card-body px-5 ">
+												<h5 class="my-3">
+													Informations concernant le client <b>${nom_client }
+														${prenom_client}</b>
+												</h5>
+												<hr>
+												<br>
 
-								<div class="col col-xl my-2 ">
-
-									<div class="card text-center ">
-										<div class="card-body px-5 ">
-											<h5 class="my-3">Total d'heures du mois</h5>
-											<hr>
-
-
+											</div>
 										</div>
-										<div></div>
+									</div>
+
+								</div>
+								<div class="row">
+
+									<div class="col col-xl my-2 ">
+
+										<div class="card text-center ">
+											<div class="card-body px-5 ">
+												<h5 class="my-3">Total d'heures du mois</h5>
+												<hr>
+												<div>
+													<c:out value="${total_heure }"></c:out>
+												</div>
+
+											</div>
+										</div>
+									</div>
+									<div class="col col-xl my-2 ">
+
+										<div class="card text-center ">
+											<div class="card-body px-5 ">
+												<h5 class="my-3">Gains brut</h5>
+												<hr>
+												<div>
+													<c:out value="${gains_brut } €"></c:out>
+												</div>
+
+											</div>
+										</div>
 									</div>
 								</div>
-								<div class="col col-xl my-2 ">
+								<div class="row">
 
-									<div class="card text-center ">
-										<div class="card-body px-5 ">
-											<h5 class="my-3">Argent gagné</h5>
-											<hr>
+									<div class="col col-xl my-2 ">
 
+										<div class="card text-center ">
+											<div class="card-body px-5 ">
+												<h5 class="my-3">
+													URSAFF <span class="fs-6">(uniquement ce client)</span>
+												</h5>
+												<hr>
+												<div>
+													<c:out value="${ursaff_prevision } €"></c:out>
+												</div>
 
+											</div>
 										</div>
-										<div></div>
+									</div>
+									<div class="col col-xl my-2 ">
+
+										<div class="card text-center ">
+											<div class="card-body px-5 ">
+												<h5 class="my-3">Gains net</h5>
+												<hr>
+												<div>
+													<c:out value="${gains_net } €"></c:out>
+												</div>
+
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
-							<div class="row">
-
-								<div class="col col-xl my-2 ">
-
-									<div class="card text-center ">
-										<div class="card-body px-5 ">
-											<h5 class="my-3">Prévision URSAFF</h5>
-											<hr>
-
-
-										</div>
-										<div></div>
-									</div>
-								</div>
-								<div class="col col-xl my-2 ">
-
-									<div class="card text-center ">
-										<div class="card-body px-5 ">
-											<h5 class="my-3">Gain net</h5>
-											<hr>
-
-
-										</div>
-										<div></div>
-									</div>
-								</div>
-							</div>
-						</div>
+						</c:if>
 					</div>
-					<div class="row mx-auto">
-						<div class="col col-xl my-2 ">
+					<c:if test="${ !empty activites}">
+						<div class="row mx-auto">
+							<div class="col col-xl my-2   ">
 
-							<div class="card mx-auto ">
-								<div class="card-body  table-responsive">
+								<div class="card mx-auto  overflow-auto" style="height: 14rem">
+									<div class="card-body  table-responsive ">
 
-									<table class="table">
-										<thead>
-											<tr>
-												<th scope="col">#</th>
-												<th scope="col">First</th>
-												<th scope="col">Last</th>
-												<th scope="col">Handle</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<th scope="row">1</th>
-												<td>Mark</td>
-												<td>Otto</td>
-												<td>@mdo</td>
-											</tr>
-											<tr>
-												<th scope="row">2</th>
-												<td>Jacob</td>
-												<td>Thornton</td>
-												<td>@fat</td>
-											</tr>
-											<tr>
-												<th scope="row">3</th>
-												<td colspan="2">Larry the Bird</td>
-												<td>@twitter</td>
-											</tr>
-										</tbody>
-									</table>
+										<table class="table table-striped table-hover  text-center">
+											<thead>
+												<tr>
+													<th scope="col">Début</th>
+													<th scope="col">Fin</th>
+													<th scope="col">Durée</th>
+													<th scope="col">Tarif</th>
+													<th scope="col">Type de mission</th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach items="${activites}" var="element">
+													<tr>
+														<td><c:out value="${element.debut}"></c:out></td>
+														<td><c:out value="${element.fin}"></c:out></td>
+														<td><c:out value="${element.duree_activite}"></c:out></td>
+														<td><c:out value="${element.tarif}"></c:out> €/h</td>
+														<td><c:out value="${element.type.type_mission}"></c:out></td>
+													</tr>
+												</c:forEach>
+											</tbody>
+										</table>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+						<div class="row mx-auto">
+							<div class="col col-xl my-2 text-center  ">
+
+								<button name="selectionner" type="submit"
+									class="btn btn-primary my-4">Générer une facture</button>
+							</div>
+							<div class="col col-xl my-2  text-center ">
+
+								<button name="selectionner" type="submit"
+									class="btn btn-primary my-4">Selectionner client</button>
+							</div>
+							<div class="col col-xl my-2  text-center ">
+								<button name="selectionner" type="submit"
+									class="btn btn-primary my-4">Selectionner client</button>
+							</div>
+						</div>
+					</c:if>
+					<c:if test="${empty invoice  }">
+
+						<div class="row mx-auto">
+							<div class="col col-xl my-2 ">
+
+								<div class="card ">
+									<div class="card-body ">
+
+										<h5 class="text-center">Facture</h5>
+										<hr>
+										<div class="row">
+
+											<div class="row mx-auto">
+												<div class="col col-xl my-2 ">
+													<div class="card ">
+														<div class="card-body text-center">
+														${prenom} ${nom }<br>
+														Siret : 814 408 928 00020<br>
+														Tel : ${telephone}
+														</div>
+													</div>
+												</div>
+
+
+												<div class="col col-xl my-2 ">
+
+													<div class="card ">
+														<div class="card-body "></div>
+													</div>
+												</div>
+
+
+												<div class="col col-xl my-2 ">
+
+													<div class="card ">
+														<div class="card-body "></div>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+					</c:if>
 				</div>
 			</form>
 		</main>
