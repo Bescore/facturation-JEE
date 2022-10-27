@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Startactivity
+ * Servlet implementation class Activite
  */
-@WebServlet("/Startactivity")
-public class Startactivity extends HttpServlet {
+@WebServlet("/Activite")
+public class Activite extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Startactivity() {
+    public Activite() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,7 +29,7 @@ public class Startactivity extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		request.getRequestDispatcher("jsp/startactivity.jsp").forward(request, response);
+		request.getRequestDispatcher("jsp/activite.jsp").forward(request, response);
 	}
 
 	/**

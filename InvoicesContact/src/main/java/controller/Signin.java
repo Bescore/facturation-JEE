@@ -58,7 +58,6 @@ public class Signin extends HttpServlet {
 		// recuperer les données du formulaire
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		System.out.println(email+" "+password);
 // verifier le pattern
 		if (Pattern.matches("^[a-zA-Z0-9._%-]+[@]+[a-zA-Z0-9.-]+[.]+[a-zA-Z]{2,4}$", email) && Pattern
 				.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}.]:;',?/*~$^+=<>]).{8,20}$", password)) {
@@ -92,7 +91,7 @@ public class Signin extends HttpServlet {
 					// Gerer cookie, mettre le token dans le cookie//
 					Cookie INC_AUTH = new Cookie("INC_AUTH", token);
 					// cookie valable 15minutes
-					INC_AUTH.setMaxAge(15 * 60);
+					INC_AUTH.setMaxAge(30 * 60);
 					// ajouter cookie au navigateur
 					response.addCookie(INC_AUTH);
 
@@ -100,6 +99,9 @@ public class Signin extends HttpServlet {
 					session.setAttribute("nom", usertab.get(0).getNom());
 					session.setAttribute("prenom", usertab.get(0).getPrenom());
 					session.setAttribute("email", usertab.get(0).getEmail());
+					session.setAttribute("telephone", usertab.get(0).getTelephone());
+					session.setAttribute("adresse", usertab.get(0).getAdresse());
+					session.setAttribute("code_postale", usertab.get(0).getCode_postale());
 					session.setAttribute("mot_de_passe", usertab.get(0).getPassword().substring(0, 10));
 					session.setAttribute("id_user", usertab.get(0).getId_personne());
 					session.setAttribute("isconnected", 1);
