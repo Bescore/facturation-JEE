@@ -137,6 +137,13 @@
 											</form>
 										</div>
 									</div>
+									<br>
+									<div class="card">
+										<div class="card-body"  >
+										<img style="width:100%;height:27.5rem; objectif-fit:cover;" src="img/background/clients.svg">
+										</div>
+										</div>
+									
 								</c:if>
 							</div>
 						</div>

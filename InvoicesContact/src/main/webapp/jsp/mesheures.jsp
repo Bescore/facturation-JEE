@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home</title>
+<title>Mes_heures</title>
 
 <!-- jquery cdn -->
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"
@@ -49,7 +49,7 @@
 
 		<!-- ! Main -->
 		<main class="main users chart-page" id="skip-target">
-			<form method="post">
+			<form method="post" id="form">
 				<div class="container">
 					<div class="row mx-auto">
 						<div class="col col-xl my-2 ">
@@ -112,8 +112,8 @@
 										<div class="card text-center ">
 											<div class="card-body px-5 ">
 												<h5 class="my-3">
-													Informations concernant le client <b>${nom_client }
-														${prenom_client}</b>
+													Informations concernant le client <b>${ce_client.nom }
+														${ce_client.prenom}</b>
 												</h5>
 												<hr>
 												<br>
@@ -186,102 +186,212 @@
 							</div>
 						</c:if>
 					</div>
-					<c:if test="${ !empty activites}">
-						<div class="row mx-auto">
-							<div class="col col-xl my-2   ">
+					<c:if test="${empty activites }">
+					<div class="row mx-auto ">
+					<div class="col col-xl">
+						<div class="card">
+							<div class="card-body">
+								<img style="width: 100%; height: 18rem; objectif-fit: cover;"
+									src="img/background/heure.svg">
+							</div>
+						</div>
+						</div>
+						</div>
+						</c:if>
+						<c:if test="${ !empty activites}">
+							<div class="row mx-auto">
+								<div class="col col-xl my-2   ">
 
-								<div class="card mx-auto  overflow-auto" style="height: 14rem">
-									<div class="card-body  table-responsive ">
+									<div class="card mx-auto  overflow-auto" style="height: 14rem">
+										<div class="card-body  table-responsive ">
 
-										<table class="table table-striped table-hover  text-center">
-											<thead>
-												<tr>
-													<th scope="col">Début</th>
-													<th scope="col">Fin</th>
-													<th scope="col">Durée</th>
-													<th scope="col">Tarif</th>
-													<th scope="col">Type de mission</th>
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach items="${activites}" var="element">
+											<table class="table table-striped table-hover  text-center">
+												<thead>
 													<tr>
-														<td><c:out value="${element.debut}"></c:out></td>
-														<td><c:out value="${element.fin}"></c:out></td>
-														<td><c:out value="${element.duree_activite}"></c:out></td>
-														<td><c:out value="${element.tarif}"></c:out> €/h</td>
-														<td><c:out value="${element.type.type_mission}"></c:out></td>
+														<th scope="col">Début</th>
+														<th scope="col">Fin</th>
+														<th scope="col">Durée</th>
+														<th scope="col">Tarif</th>
+														<th scope="col">Type de mission</th>
 													</tr>
-												</c:forEach>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row mx-auto">
-							<div class="col col-xl my-2 text-center  ">
-
-								<button name="selectionner" type="submit"
-									class="btn btn-primary my-4">Générer une facture</button>
-							</div>
-							<div class="col col-xl my-2  text-center ">
-
-								<button name="selectionner" type="submit"
-									class="btn btn-primary my-4">Selectionner client</button>
-							</div>
-							<div class="col col-xl my-2  text-center ">
-								<button name="selectionner" type="submit"
-									class="btn btn-primary my-4">Selectionner client</button>
-							</div>
-						</div>
-					</c:if>
-					<c:if test="${empty invoice  }">
-
-						<div class="row mx-auto">
-							<div class="col col-xl my-2 ">
-
-								<div class="card ">
-									<div class="card-body ">
-
-										<h5 class="text-center">Facture</h5>
-										<hr>
-										<div class="row">
-
-											<div class="row mx-auto">
-												<div class="col col-xl my-2 ">
-													<div class="card ">
-														<div class="card-body text-center">
-														${prenom} ${nom }<br>
-														Siret : 814 408 928 00020<br>
-														Tel : ${telephone}
-														</div>
-													</div>
-												</div>
-
-
-												<div class="col col-xl my-2 ">
-
-													<div class="card ">
-														<div class="card-body "></div>
-													</div>
-												</div>
-
-
-												<div class="col col-xl my-2 ">
-
-													<div class="card ">
-														<div class="card-body "></div>
-													</div>
-												</div>
-											</div>
-
+												</thead>
+												<tbody>
+													<c:forEach items="${activites}" var="element">
+														<tr>
+															<td><c:out value="${element.debut}"></c:out></td>
+															<td><c:out value="${element.fin}"></c:out></td>
+															<td><c:out value="${element.duree_activite}"></c:out></td>
+															<td><c:out value="${element.tarif}"></c:out> €/h</td>
+															<td><c:out value="${element.type.type_mission}"></c:out></td>
+														</tr>
+													</c:forEach>
+												</tbody>
+											</table>
 										</div>
 									</div>
 								</div>
 							</div>
-					</c:if>
-				</div>
+							<div class="row mx-auto">
+								<div class="col col-xl my-2 text-end  ">
+
+									<button type="button" class="btn btn-primary my-4"
+										id="FactureBtn" onClick="return genere_Facture()">Imprimer
+										facture</button>
+									<button name="genererFacture" type="button"
+										data-bs-toggle="modal" data-bs-target="#exampleModal"
+										class="btn btn-primary my-4">Générer et envoyer la
+										facture au client</button>
+								</div>
+							</div>
+						</c:if>
+						<c:if test="${empty invoice  }">
+							<input id="inputFacture" name="inputFacture_html" hidden="hidden"
+								type="text">
+							<div hidden="hidden" id="genererFactureDiv">
+								<div class="row mx-auto">
+									<div class="col col-xl my-2 ">
+
+										<div class="card ">
+											<div class="card-body ">
+
+												<h5 class="text-center">Facture</h5>
+												<hr>
+												<br> <br> <br>
+												<div class="row">
+
+													<div class="row mx-auto">
+														<div class="col col-xl my-2 text-start "
+															style="font-size: 13px">
+															Facture par : ${prenom} ${nom }<br> Siret : 814 408
+															928 00020<br> Tel : ${telephone}<br>
+
+
+														</div>
+														<div class="col col-xl my-2 text-end"
+															style="font-size: 13px">
+															L'entreprise ${prenom} ${nom }<br> Adresse:
+															${adresse }, Code Postale: ${code_postale }<br>
+															Facture crée le : ${dateEtHeure}<br> <br>
+															Adressé à : ${ce_client.nom } ${ce_client.prenom }<br>
+															Adresse: ${ce_client.adresse}, ${ce_client.code_postale }<br>
+															Téléphone : ${ce_client.telephone }
+
+														</div>
+													</div>
+
+												</div>
+												<br> <br> <br>
+												<div class="row">
+													<div class="col col-xl my-2 ">
+														<div class="card ">
+															<div class="card-body text-center ">
+																<p class="fw-bold text-dark">Détails des heures</p>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+
+
+
+													<div class="col col-xl my-2">
+
+														<div class="card mx-auto  overflow-auto">
+															<div class="card-body  table-responsive ">
+
+																<table style="font-size: 13px"
+																	class="table table-striped table-hover  text-center">
+																	<thead>
+																		<tr>
+																			<th scope="col">Début</th>
+																			<th scope="col">Fin</th>
+																			<th scope="col">Durée</th>
+																			<th scope="col">Type de mission</th>
+																			<th scope="col">Tarif</th>
+																		</tr>
+																	</thead>
+																	<tbody>
+																		<c:forEach items="${activites}" var="element">
+																			<tr>
+																				<td><c:out value="${element.debut}"></c:out></td>
+																				<td><c:out value="${element.fin}"></c:out></td>
+																				<td><c:out value="${element.duree_activite}"></c:out></td>
+																				<td><c:out value="${element.type.type_mission}"></c:out></td>
+																				<td><c:out value="${element.tarif}"></c:out>
+																					€/h</td>
+																			</tr>
+																		</c:forEach>
+																	</tbody>
+																</table>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col col-xl my-2 ">
+														<div class="card ">
+															<div class="card-body text-center ">
+																<p class="fw-bold text-dark">Paiement</p>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col col-xl-4 my-2 right-50"></div>
+													<div class="col col-xl-4 my-2 right-50"></div>
+													<div class="col col-xl-4 my-2 right-50">
+														<div class="card ">
+															<div class="card-body text-center">
+																<p class="fw-bold text-dark" style="font-size: 13px">Total
+																	d'heures : ${total_heure }</p>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col col-xl-4 my-2 right-50"></div>
+													<div class="col col-xl-4 my-2 right-50"></div>
+													<div class="col col-xl-4 my-2 right-50">
+														<div class="card ">
+															<div class="card-body text-center">
+																<p class="fw-bold text-dark" style="font-size: 13px">A
+																	payer : ${gains_brut } €</p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Modal -->
+							<div class="modal fade" id="exampleModal" tabindex="-1"
+								aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered">
+									<div class="modal-content p-3">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">Envoyer la facture au client</h5>
+											<button type="button" class="btn-close"
+												data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">Vous allez générer une facture
+											et l'envoyer au client par mail êtes vous sûr?</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-outline-primary"
+												data-bs-dismiss="modal">Non</button>
+											<a
+												href="<c:url value="/SendMail?nom=${ce_client.nom }
+											&prenom=${ce_client.prenom }&adresse=${ce_client.adresse }, ${ce_client.code_postale}
+											&tel=${ce_client.telephone }&totalHeure=${total_heure }&apayer=${gains_brut }
+											&email=${ce_client.email }&datetime=${dateEtHeure}"></c:url>"
+												class="btn btn-outline-danger">Oui</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</c:if>
+					</div>
 			</form>
 		</main>
 		<!-- ! Footer -->

@@ -181,6 +181,10 @@ ArrayList<ActiviteJournaliere> ActiviteTab = new ArrayList<ActiviteJournaliere>(
 			newClient.setId_personne(rs.getInt("id_client"));
 			newClient.setNom(rs.getString("nom"));
 			newClient.setPrenom(rs.getString("prenom"));
+			newClient.setEmail(rs.getString("email"));
+			newClient.setAdresse(rs.getString("adresse"));
+			newClient.setCode_postale(rs.getInt("code_postale"));
+			newClient.setTelephone(rs.getString("telephone"));
 			
 			
 			//creer un type

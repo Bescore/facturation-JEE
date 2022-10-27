@@ -36,7 +36,8 @@
 </head>
 
 <body>
-	
+	<!-- Ne pas envlever cette div, necessaire au mecanisme de certaines popup -->
+	<div class="layer"></div>
 	<!-- ! Body -->
 	<a class="skip-link sr-only" href="#skip-target">Skip to content</a>
 	<div class="page-flex">
@@ -49,7 +50,50 @@
 		<main class="main users chart-page" id="skip-target">
 			<form method="post">
 				<div class="container">
-					<h2 class="main-title text-center my-4">Bonjour 👋, contents
+				<c:if test="${empty clients && empty types || empty clients|| empty types}">
+				<h2 class="main-title my-4">Bonjour !</h2>
+				<div class="row mx-auto">
+				<div class="col-12 col-xl my-2 ">
+				<div class="card ">
+				<div class="card-body ">
+				<h6 class="my-2 text-center fw-bold">1 . Ajoutez des clients</h6>
+				
+				
+				<a href="<c:url value="/Client"></c:url>"><img alt="clients" class="my-5" style="height:21rem;" src="img/background/clients.svg"></a>
+				
+				
+				
+				
+				</div>
+				
+				</div>
+				</div>
+				<div class="col-12 text-center col-xl my-2 ">
+				<div class="card ">
+				<div class="card-body ">
+				<h6 class="my-2 fw-bold">2 . Ajoutez le type de service que vous fournissez</h6>
+				
+				<a href="<c:url value="/TypeActivite"></c:url>"><img alt="business" class="my-5" style="height:21rem;" src="img/background/business.svg"></a>
+				
+				</div>
+				
+				</div>
+				</div>
+					<div class="col-12 text-center col-xl my-2 ">
+				<div class="card ">
+				<div class="card-body ">
+				<h6 class="my-2 fw-bold">3 . Gérez vos heures et factures </h6>
+				
+				<img alt="heure" class="my-5" style="height:21rem;" src="img/background/heure.svg">
+				
+				</div>
+				
+				</div>
+				</div>
+				</div>
+				</c:if>
+				<c:if test="${!empty clients && !empty types }">
+					<h2 class="main-title  my-4">Bonjour 👋, nous sommes contents
 						de vous revoir</h2>
 					<div class="row mx-auto">
 						<c:choose>
@@ -89,6 +133,13 @@
 										<div></div>
 									</div>
 								</div>
+								<div class="col-12 col-xl my-2 ">
+								<div class="card">
+										<div class="card-body"  >
+										<img style="width:100%;height:25rem; objectif-fit:cover;" src="img/background/business.svg">
+										</div>
+										</div>
+										</div>
 							</c:when>
 							<c:when test="${!empty activite_en_cours }">
 								<div class="col-12 col-xl my-2 ">
@@ -117,7 +168,7 @@
 											</p>
 											<div></div>
 											<button name="arreter_journee" type="submit"
-												class="btn btn-danger my-4"> <div class="spinner-border spinner-border-sm text-warning " role="status">
+												class="btn btn-outline-danger my-4"> <div class="spinner-border spinner-border-sm text-warning " role="status">
 													<span class="visually-hidden">Loading...</span>
 												</div> Arrêter</button>
 											
@@ -129,13 +180,13 @@
 						</c:choose>
 					</div>
 					<c:if test="${!empty activites_recentes }">
-					<h2 class="main-title text-center my-4">Dernière journée enregistrée</h2>
+					<h2 class="main-title  my-4">Dernière journée enregistrée</h2>
 					<div class="row mx-auto">
 						<div class="col-12 col-xl my-2 ">
 
 							<div class="card text-center ">
 								<div class="card-body rounded-3">
-									<h5>Durée </h5>
+									<h5><i class="fa-solid fa-stopwatch fa-2x text-primary" title="Durée"></i> </h5>
 									<div class="my-2"><c:out value=" ${activites_recentes.duree_activite } (H)"></c:out></div>
 
 								</div>
@@ -145,7 +196,7 @@
 
 							<div class="card text-center">
 								<div class="card-body ">
-									<h5>Client et mission</h5>
+									<h5><i class="fa-solid fa-briefcase fa-2x text-warning" title="Client et mission"></i></h5>
 									<div class="my-2">
 										<c:out
 											value=" ${activites_recentes.client.prenom } ${activites_recentes.client.nom }"></c:out>
@@ -159,12 +210,13 @@
 
 							<div class="card text-center ">
 								<div class="card-body ">
-									<h5>Argent gagné</h5>
+									<h5><i class="fa-solid fa-sack-dollar fa-2x text-success" title="Argent gagné"></i></h5>
 									<div class="my-2"><c:out value=" ${somme_du} € (brut)"></c:out></div>
 								</div>
 							</div>
 						</div>
 					</div>
+					</c:if>
 					</c:if>
 				</div>
 			</form>

@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.regex.Pattern;
 
@@ -17,6 +18,7 @@ import modele.ActiviteJournaliere;
 import modele.Calculs;
 import modele.Clients;
 import modele.GetCookie;
+import modele.SendMail;
 
 /**
  * Servlet implementation class Mesheures
@@ -58,6 +60,10 @@ public class Mesheures extends HttpServlet {
 
 			// année courate, affichage dans le jsp
 			request.setAttribute("annee", Calendar.getInstance().get(Calendar.YEAR));
+			
+			//recuperer l'heure et la date courante (sera utilisé pour la facture
+			SimpleDateFormat formatter = new SimpleDateFormat(" dd-MM-yyyy à HH:mm:ss");
+			request.setAttribute("dateEtHeure", formatter.format(Calendar.getInstance().getTime()));
 
 			request.getRequestDispatcher("jsp/mesheures.jsp").forward(request, response);
 		} else {
@@ -118,14 +124,12 @@ public class Mesheures extends HttpServlet {
 			} else {
 				request.setAttribute("erreur", 1);
 			}
-
+			// pour recuperer info client
 			if (newActiviteDao.FindbyMoisAnnee(newActivite, Integer.valueOf(mois), annee).size() != 0) {
-				// nom du client
-				request.setAttribute("nom_client", newActiviteDao
-						.FindbyMoisAnnee(newActivite, Integer.valueOf(mois), annee).get(0).getClient().getNom());
-				// prenom du client
-				request.setAttribute("prenom_client", newActiviteDao
-						.FindbyMoisAnnee(newActivite, Integer.valueOf(mois), annee).get(0).getClient().getPrenom());
+				
+				request.setAttribute("ce_client", newActiviteDao
+						.FindbyMoisAnnee(newActivite, Integer.valueOf(mois), annee).get(0).getClient());
+				
 			}
 		}
 
