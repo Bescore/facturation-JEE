@@ -90,6 +90,7 @@ public class ActiviteDao implements Interface<ActiviteJournaliere> {
 				
 				return newActiviteJ;
 			}
+			sql.close();
 			rs.close();
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -165,7 +166,13 @@ public class ActiviteDao implements Interface<ActiviteJournaliere> {
 ArrayList<ActiviteJournaliere> ActiviteTab = new ArrayList<ActiviteJournaliere>();
 		//trouver les données en fonction du mois et de l'année, utilis dans "mesheures"
 		try {
-		PreparedStatement sql = connect.prepareStatement("SELECT *,DATE_FORMAT(debut, '%H:%i:%S') as debutformat,DATE_FORMAT(fin, '%H:%i:%S')as finformat FROM activite_journaliere INNER JOIN type INNER JOIN client ON activite_journaliere.client=client.id_client AND activite_journaliere.type=type.id_type AND client.id_client=? AND month(debut)=? AND year(debut)=? AND fin!=0");
+		PreparedStatement sql = connect.prepareStatement("SELECT *,DATE_FORMAT(debut, '%H:%i:%S') as debutformat,DATE_FORMAT(fin, '%H:%i:%S')as finformat FROM activite_journaliere "
+				+ "INNER JOIN type "
+				+ "INNER JOIN client "
+				+ "ON activite_journaliere.client=client.id_client AND activite_journaliere.type=type.id_type"
+				+ " AND client.id_client=? AND month(debut)=?"
+				+ " AND year(debut)=? "
+				+ "AND fin!=0");
 		
 		sql.setInt(1, object.getClient().getId_personne());
 		sql.setInt(2,mois );

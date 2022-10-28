@@ -5,18 +5,19 @@ import java.util.Date;
 public class Facture {
 	private int id_facture;
 	private String identifiant;
-	private float somme;
-	private float nbr_totale_heure;
+	private String somme;
+	private String nbr_totale_heure;
 	private int payee;
 	private int isActive_facture;
-	private Date date;
+	private Clients client;
+	private String date;
 
 	public Facture() {
 
 	}
 
-	public Facture(int id_facture, String identifiant, float somme, float nbr_totale_heure, int payee,
-			int isActive_facture, Date date) {
+	public Facture(int id_facture, String identifiant, String somme, String nbr_totale_heure, int payee,
+			int isActive_facture, Clients client, String date) {
 		super();
 		this.id_facture = id_facture;
 		this.identifiant = identifiant;
@@ -24,6 +25,7 @@ public class Facture {
 		this.nbr_totale_heure = nbr_totale_heure;
 		this.payee = payee;
 		this.isActive_facture = isActive_facture;
+		this.client = client;
 		this.date = date;
 	}
 
@@ -43,19 +45,19 @@ public class Facture {
 		this.identifiant = identifiant;
 	}
 
-	public float getSomme() {
+	public String getSomme() {
 		return somme;
 	}
 
-	public void setSomme(float somme) {
+	public void setSomme(String somme) {
 		this.somme = somme;
 	}
 
-	public float getNbr_totale_heure() {
+	public String getNbr_totale_heure() {
 		return nbr_totale_heure;
 	}
 
-	public void setNbr_totale_heure(float nbr_totale_heure) {
+	public void setNbr_totale_heure(String nbr_totale_heure) {
 		this.nbr_totale_heure = nbr_totale_heure;
 	}
 
@@ -75,11 +77,19 @@ public class Facture {
 		this.isActive_facture = isActive_facture;
 	}
 
-	public Date getDate() {
+	public Clients getClient() {
+		return client;
+	}
+
+	public void setClient(Clients client) {
+		this.client = client;
+	}
+
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
@@ -87,9 +97,11 @@ public class Facture {
 	public String toString() {
 		return "Facture [id_facture=" + id_facture + ", identifiant=" + identifiant + ", somme=" + somme
 				+ ", nbr_totale_heure=" + nbr_totale_heure + ", payee=" + payee + ", isActive_facture="
-				+ isActive_facture + ", date=" + date + "]";
+				+ isActive_facture + ", client=" + client + ", date=" + date + "]";
 	}
 
 	
-
+	
+	
+	
 }

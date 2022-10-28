@@ -51,12 +51,12 @@ public class TypeActivite extends HttpServlet {
 				request.setAttribute("value", request.getParameter("value"));
 
 			}
-			// afficher l'input delete si le parametre delete est presént
+			// afficher l'input delete si le parametre delete est presÃ©nt
 			if (request.getParameter("action") != null && request.getParameter("action").equals("delete")) {
 				request.setAttribute("delete", 1);
 
 			}
-			// afficher l'input edit si le parametre edit est presént
+			// afficher l'input edit si le parametre edit est presÃ©nt
 			if (request.getParameter("action") != null && request.getParameter("action").equals("edit")) {
 				request.setAttribute("edit", 1);
 
@@ -83,7 +83,7 @@ public class TypeActivite extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		// on récupère les valeurs des champs
+		// on rÃ©cupÃ¨re les valeurs des champs
 		String inputValue = request.getParameter("inputValue");
 
 		// instancier un modele type
@@ -91,10 +91,10 @@ public class TypeActivite extends HttpServlet {
 		// instancer un dao type
 		TypeDao newTypeDao = new TypeDao();
 
-		// verifie si le bouton est cliqué, si on a bien un parametre id, si ce qui est
+		// verifie si le bouton est cliquÃ©, si on a bien un parametre id, si ce qui est
 		// dans le champs est valide
 		if (request.getParameter("valider") != null && request.getParameter("id") != null
-				&& Pattern.matches("^[a-zA-Z- ',]+$", inputValue)) {
+				&& Pattern.matches("^[a-zA-Z ',]+$", inputValue)) {
 
 			// recuperer l'id
 			int id = Integer.valueOf(request.getParameter("id"));
@@ -129,7 +129,7 @@ public class TypeActivite extends HttpServlet {
 			}
 			// fin si on ne rempli pas la toute premiere condition ( edit ou delete)
 		} else {
-			// si on arrive sur la page et on clique sur valider avec une entrée
+			// si on arrive sur la page et on clique sur valider avec une entrÃ©e
 			if (request.getParameter("valider") != null && inputValue != null && !inputValue.isEmpty()
 					&& Pattern.matches("^[a-zA-Z- ',]+$", inputValue)) {
 				//CREATE
@@ -139,7 +139,7 @@ public class TypeActivite extends HttpServlet {
 				newTypeDao.Create(newType);
 				response.sendRedirect(request.getContextPath() + "/TypeActivite");
 				
-				//si rien n'est valide on revient à la page TypeActivite avec le do get
+				//si rien n'est valide on revient Ã  la page TypeActivite avec le do get
 			} else {
 				doGet(request, response);
 			}

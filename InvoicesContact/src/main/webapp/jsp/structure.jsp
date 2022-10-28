@@ -7,9 +7,9 @@
 					<a href='<c:url value="/Home"></c:url>' class="logo-wrapper"
 						title="Home"> <span class="sr-only">Home</span> <span><img
 							src="img/background/logo_facturation.png" aria-hidden="true"></span>
-						<div class="logo-text">
+						<span class="logo-text">
 							<span class="logo-subtitle">Invoices and contact</span>
-						</div>
+						</span>
 
 					</a>
 					<button class="sidebar-toggle transparent-btn" title="Menu"
@@ -51,8 +51,7 @@
 							</span>
 						</a>
 							<ul class="cat-sub-menu">
-								<li><a href="#">Consulter mes factures</a></li>
-								<li><a href="#">Envoyer factures</a></li>
+								<li><a href="<c:url value="/Facture"></c:url>">Mes factures</a></li>
 								<li><a href="<c:url value="/Statistiques"></c:url>">Statistiques</a></li>
 							</ul></li>
 						<li>
@@ -66,10 +65,10 @@
 							type="image/webp">
 						<img src="./img/avatar/avatar-illustrated-02.png" alt="User name"></picture>
 				</span>
-					<div class="sidebar-user-info">
+					<span class="sidebar-user-info">
 						<span class="sidebar-user__title">L. jean-marie</span> <span
 							class="sidebar-user__subtitle">Concepteur</span>
-					</div>
+					</span>
 				</a>
 			</div>
 		</aside>
@@ -79,8 +78,9 @@
 				<div class="container main-nav">
 					<div class="main-nav-start">
 						<div class="search-wrapper">
-							<i data-feather="search" aria-hidden="true"></i> <input
+							 <input
 								type="text" placeholder="Rechercher.." required>
+								<button type="button" class="btn btn-primary m-2"><i class="fa-solid fa-magnifying-glass"></i></button>
 						</div>
 					</div>
 					<div class="main-nav-end">
@@ -108,35 +108,35 @@
 							</button>
 							<ul class="users-item-dropdown notification-dropdown dropdown">
 								<li><a href="##">
-										<div class="notification-dropdown-icon info">
+										<span class="notification-dropdown-icon info">
 											<i data-feather="check"></i>
-										</div>
-										<div class="notification-dropdown-text">
+										</span>
+										<span class="notification-dropdown-text">
 											<span class="notification-dropdown__title">System just
 												updated</span> <span class="notification-dropdown__subtitle">The
 												system has been successfully upgraded. Read more here.</span>
-										</div>
+										</span>
 								</a></li>
 								<li><a href="##">
-										<div class="notification-dropdown-icon danger">
+										<span class="notification-dropdown-icon danger">
 											<i data-feather="info" aria-hidden="true"></i>
-										</div>
-										<div class="notification-dropdown-text">
+										</span>
+										<span class="notification-dropdown-text">
 											<span class="notification-dropdown__title">The cache
 												is full!</span> <span class="notification-dropdown__subtitle">Unnecessary
 												caches take up a lot of memory space and interfere ...</span>
-										</div>
+										</span>
 								</a></li>
 								<li><a href="##">
-										<div class="notification-dropdown-icon info">
+										<span class="notification-dropdown-icon info">
 											<i data-feather="check" aria-hidden="true"></i>
-										</div>
-										<div class="notification-dropdown-text">
+										</span>
+										<span class="notification-dropdown-text">
 											<span class="notification-dropdown__title">New
 												Subscriber here!</span> <span
 												class="notification-dropdown__subtitle">A new
 												subscriber has subscribed.</span>
-										</div>
+										</span>
 								</a></li>
 								<li><a class="link-to-page" href="##">Go to
 										Notifications page</a></li>

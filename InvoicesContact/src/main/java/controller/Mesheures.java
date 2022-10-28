@@ -18,7 +18,6 @@ import modele.ActiviteJournaliere;
 import modele.Calculs;
 import modele.Clients;
 import modele.GetCookie;
-import modele.SendMail;
 
 /**
  * Servlet implementation class Mesheures
@@ -52,7 +51,7 @@ public class Mesheures extends HttpServlet {
 
 		// on utilise la fonction qui va recuperer le cookie
 		String cookie = GetCookie.recupererCookie(request, token);
-		if (cookie.equals(token)) {
+		if (cookie.equals(token)) { 
 
 			// READ DES CLIENTS
 			// declencher la methode et l'envoyer au jsp
@@ -132,7 +131,6 @@ public class Mesheures extends HttpServlet {
 				
 			}
 		}
-
 		doGet(request, response);
 	}
 
