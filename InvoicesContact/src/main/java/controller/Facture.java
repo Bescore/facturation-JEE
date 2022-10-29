@@ -50,6 +50,24 @@ public class Facture extends HttpServlet {
 			//read et set attribute
 			request.setAttribute("factures", newFactureDao.Read());
 			
+			//NOMBRE DE FACTURES
+			request.setAttribute("nombre_totale_factures",newFactureDao.Read().size());
+			
+			//NOMBRE DE FACTURES NON PAYEE
+			request.setAttribute("nombre_factures_non_payee", newFactureDao.FindbyNombreFactureNonPayee());
+			
+			//NOMBRE DE FACTURE PAYEE
+			request.setAttribute("nombre_factures_payee", newFactureDao.FindbyNombreFacturePayee());
+			
+			//SOMME TOTALE
+			request.setAttribute("somme_totale",newFactureDao.FindbySommeTotale());
+			
+			//SOMME TOTALE PAYEE
+			request.setAttribute("somme_totale_payee",newFactureDao.FindbySommeTotalePayee());
+			
+			//SOMME TOTALE NON PAYEE
+			request.setAttribute("somme_totale_non_payee",newFactureDao.FindbySommeTotaleNonPayee());
+			
 			
 			
 		

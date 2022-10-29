@@ -91,5 +91,131 @@ public class FactureDao implements Interface<Facture> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
+	public int FindbyNombreFactureNonPayee() {
+		// TODO Auto-generated method stub
 
+		try {
+
+			PreparedStatement sql = connect.prepareStatement("SELECT count(*) as nombreNonPayee FROM facture WHERE payee=?");
+			
+			sql.setInt(1, 0);
+			
+			ResultSet rs = sql.executeQuery();
+			
+			while(rs.next()) {
+				
+				int nombreNonPayee=rs.getInt("nombreNonPayee");
+				
+				return nombreNonPayee ;
+			}
+			sql.close();
+			rs.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		return 0;
+	}
+	public int FindbyNombreFacturePayee() {
+		// TODO Auto-generated method stub
+
+		try {
+
+			PreparedStatement sql = connect.prepareStatement("SELECT count(*) as nombreNonPayee FROM facture WHERE payee=?");
+			
+			sql.setInt(1, 1);
+			
+			ResultSet rs = sql.executeQuery();
+			
+			while(rs.next()) {
+				
+				int nombreNonPayee=rs.getInt("nombreNonPayee");
+				
+				return nombreNonPayee ;
+			}
+			sql.close();
+			rs.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		return 0;
+	}
+	
+	public float FindbySommeTotale() {
+		// TODO Auto-generated method stub
+
+		try {
+
+			PreparedStatement sql = connect.prepareStatement("SELECT ROUND(sum(somme),2) as sommeTotale FROM facture");
+			
+			ResultSet rs = sql.executeQuery();
+			
+			while(rs.next()) {
+				
+				float sommeTotale=rs.getFloat("sommeTotale");
+				
+				return sommeTotale ;
+			}
+			sql.close();
+			rs.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		return 0;
+	}
+	public float FindbySommeTotalePayee() {
+		// TODO Auto-generated method stub
+
+		try {
+
+			PreparedStatement sql = connect.prepareStatement("SELECT ROUND(sum(somme),2) as sommeTotalePayee FROM facture where payee=?");
+			
+			sql.setInt(1, 1);
+			
+			ResultSet rs = sql.executeQuery();
+			
+			while(rs.next()) {
+				
+				float sommeTotalePayee=rs.getFloat("sommeTotalePayee");
+				
+				return sommeTotalePayee;
+			}
+			sql.close();
+			rs.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		return 0;
+	}
+	
+	public float FindbySommeTotaleNonPayee() {
+		// TODO Auto-generated method stub
+
+		try {
+
+			PreparedStatement sql = connect.prepareStatement("SELECT ROUND(sum(somme),2) as sommeTotaleNonPayee FROM facture where payee=?");
+			
+			sql.setInt(1, 0);
+			
+			ResultSet rs = sql.executeQuery();
+			
+			while(rs.next()) {
+				
+				float sommeTotaleNonPayee=rs.getFloat("sommeTotaleNonPayee");
+				
+				return sommeTotaleNonPayee;
+			}
+			sql.close();
+			rs.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		return 0;
+	}
 }

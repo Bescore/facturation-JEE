@@ -51,8 +51,9 @@
 				<div class="row">
 					<div class="col-12 col-xl">
 						<div class="card">
-							<div class="card-body table-responsive">
-								<table class="table text-center ">
+							<div class="card-body table-responsive" style="height: 18rem;">
+								<table
+									class="table text-center table-striped table table table-bordered">
 									<thead>
 										<tr>
 											<th scope="col">Identifiant</th>
@@ -64,22 +65,22 @@
 										</tr>
 									</thead>
 									<tbody>
-									<c:forEach items="${factures }" var="element">
-										<tr>
-											<td >${element.identifiant }</td>
-											<td>${element.somme } €</td>
-											<td>${element.nbr_totale_heure }</td>
-											<td>${element.client.nom } ${element.client.prenom }</td>
-											<td>${element.date}</td>
-											<c:choose>
-											<c:when test="${element.payee==1}">
-											<td><i class="fa-solid fa-circle-check text-primary"></i></td>
-											</c:when>
-											<c:when test="${element.payee==0}">
-											<td><i class="fa-solid fa-circle-xmark text-danger"></i></td>
-											</c:when>
-											</c:choose>
-										</tr>
+										<c:forEach items="${factures }" var="element">
+											<tr>
+												<td>${element.identifiant }</td>
+												<td>${element.somme }€</td>
+												<td>${element.nbr_totale_heure }</td>
+												<td>${element.client.nom }  ${element.client.prenom }</td>
+												<td>${element.date}</td>
+												<c:choose>
+													<c:when test="${element.payee==1}">
+														<td><i class="fa-solid fa-circle-check text-success"></i></td>
+													</c:when>
+													<c:when test="${element.payee==0}">
+														<td><i class="fa-solid fa-circle-xmark text-danger"></i></td>
+													</c:when>
+												</c:choose>
+											</tr>
 										</c:forEach>
 									</tbody>
 								</table>
@@ -87,8 +88,71 @@
 						</div>
 					</div>
 				</div>
-			</div>
-
+				<div class="row my-3">
+					<div class="col-12 col-xl text-center ">
+						<div class="card">
+							<div class="card-body">
+							
+							<div >Nombre de factures</div>
+							<hr>
+							<div class="my-4">${nombre_totale_factures }</div>
+							
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-xl text-center ">
+						<div class="card">
+							<div class="card-body">
+							
+							<span>Nombre de factures payés</span>
+							<hr>
+							<div class="my-4">${nombre_factures_payee }</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-xl text-center ">
+						<div class="card">
+							<div class="card-body">
+							
+							<div>Nombre de factures en attente de paiement</div>
+							<hr>
+							<div class="my-4">${nombre_factures_non_payee }</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row my-3 text-light">
+					<div class="col-12 col-xl text-center">
+						<div class="card bg-primary">
+							<div class="card-body">
+							
+							<div>Somme totale</div>
+							<hr>
+							<div class="my-4">${somme_totale } €</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-xl text-center ">
+						<div class="card bg-success">
+							<div class="card-body">
+							
+							<div>Somme totale payée</div>
+							<hr>
+							<div class="my-4">${somme_totale_payee } €</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-xl text-center ">
+						<div class="card bg-warning">
+							<div class="card-body">
+							
+							<div>Somme totale non payée</div>
+							<hr>
+							<div class="my-4">${somme_totale_non_payee} €</div>
+							</div>
+						</div>
+					</div>
+				</div>
 		</main>
 
 		<!-- ! Footer -->

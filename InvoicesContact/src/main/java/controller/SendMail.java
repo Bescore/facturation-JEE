@@ -56,6 +56,7 @@ public class SendMail extends HttpServlet {
 			String telephone=request.getParameter("tel");
 			String apayer=request.getParameter("apayer");
 			String datetime=request.getParameter("datetime");
+			String contextPath=request.getContextPath();
 			
 			//creer numero de facture
 			// creer token ou generer un array de byte, qu'on va ensuite tostring et encoder
@@ -543,7 +544,7 @@ public class SendMail extends HttpServlet {
 					+ "																<div style=\"font-family: sans-serif\">\r\n"
 					+ "																	<div class style=\"font-size: 12px; mso-line-height-alt: 14.399999999999999px; color: #56B500; line-height: 1.2; font-family: Oxygen, Trebuchet MS, Helvetica, sans-serif;\">\r\n"
 					+ "																		<p style=\"margin: 0; font-size: 14px; mso-line-height-alt: 16.8px;\">Méthode de paiement :</p>\r\n"
-					+ "																		<p style=\"margin: 0; font-size: 14px; mso-line-height-alt: 16.8px;\"><span style=\"font-size:17px;\">PAYPAL /CB</span> <a href=\"?facture="+token+"\">Payez ici</a></p> \r\n"
+					+ "																		<p style=\"margin: 0; font-size: 14px; mso-line-height-alt: 16.8px;\"><span style=\"font-size:17px;\">PAYPAL /CB</span> <a href=\""+contextPath+"/Paiement?facture="+token+"\">Payez ici</a></p> \r\n"
 					+ "																	</div>\r\n"
 					+ "																</div>\r\n"
 					+ "															</td>\r\n"
@@ -614,7 +615,7 @@ public class SendMail extends HttpServlet {
 					+ "																		<p style=\"margin: 0; font-size: 12px; mso-line-height-alt: 18px;\">Entreprise : "+prenom_user+" "+nom_user+"</p>\r\n"
 					+ "																		<p style=\"margin: 0; font-size: 12px; mso-line-height-alt: 18px;\">Adresse : "+adresse_user+"</p>\r\n"
 					+ "																		<p style=\"margin: 0; font-size: 12px; mso-line-height-alt: 18px;\">Mail: "+mail_user+"</p>\r\n"
-					+ "																		<p style=\"margin: 0; font-size: 12px; mso-line-height-alt: 18px;\">Détail des heures ici : <a href=\"?facture="+token+"\">Lien heures ici</a></p>\r\n"
+					+ "																		<p style=\"margin: 0; font-size: 12px; mso-line-height-alt: 18px;\">Détail des heures ici : <a href=\""+contextPath+"/DetailsHeures?facture="+token+"\">Lien heures ici</a></p>\r\n"
 					+ "																	</div>\r\n"
 					+ "																</div>\r\n"
 					+ "															</td>\r\n"
