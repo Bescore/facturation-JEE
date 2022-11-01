@@ -54,7 +54,7 @@ public class Calculs {
 			
 		}
 		//Pour finir on transforme le tout en chaine de character
-		TotalHeure=String.valueOf(heuresC)+" heures "+String.valueOf(minutesC)+" minutes "+String.valueOf(secondesC)+" minutes ";
+		TotalHeure=String.valueOf(heuresC)+" heures "+String.valueOf(minutesC)+" minutes "+String.valueOf(secondesC)+" secondes ";
 		
 		return TotalHeure;
 		

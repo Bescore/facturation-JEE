@@ -62,6 +62,9 @@
 
 									<select name="client" class="form-select"
 										aria-label="Default select example">
+										<c:if test="${empty clients }">
+										<option>-- Pas de clients --</option>
+										</c:if>
 										<c:forEach items="${clients}" var="element">
 											<option value="${element.id_personne }"><c:out
 													value=" ${element.nom } ${element.prenom }"></c:out></option>
@@ -90,8 +93,10 @@
 										<input name="annee" value="${annee}" type="number" min="2022"
 											size="4">
 									</div>
+									<c:if test="${!empty clients }">
 									<button name="selectionner" type="submit"
 										class="btn btn-primary my-4">Selectionner client</button>
+									</c:if>
 
 								</div>
 								<c:if test="${!empty erreur }">
@@ -383,7 +388,7 @@
 											<a
 												href="<c:url value="/SendMail?nom=${ce_client.nom }
 											&prenom=${ce_client.prenom }&adresse=${ce_client.adresse }, ${ce_client.code_postale}
-											&tel=${ce_client.telephone }&totalHeure=${total_heure }&apayer=${gains_brut }
+											&tel=${ce_client.telephone }&totalHeure=${total_heure }&apayer=${gains_brut }&id_client=${ce_client.id_personne }
 											&email=${ce_client.email }&datetime=${dateEtHeure}"></c:url>"
 												class="btn btn-outline-danger">Oui</a>
 										</div>

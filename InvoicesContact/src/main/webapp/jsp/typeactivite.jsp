@@ -51,13 +51,13 @@
 
 				<div class="row my-2">
 					<div class="col">
+					<c:if test="${!empty types}">
 						<div class="card">
 							<div class="card-body table-responsive">
-								<h5 class="card-title">Liste des types disponibles</h5>
+							<br/>
 								<table class="table table-striped text-center">
 									<thead>
 										<tr>
-											<th scope="col">#</th>
 											<th scope="col">Type de mission</th>
 											<th scope="col">Modifier</th>
 											<th scope="col">Supprimer</th>
@@ -68,7 +68,6 @@
 										<c:if test="${!empty types }">
 											<c:forEach items="${types }" var="element">
 												<tr>
-													<th scope="row"><c:out value="${element.id_type }"></c:out></th>
 													<td><c:out value="${element.type_mission }"></c:out></td>
 													<td><a
 														href="<%request.getContextPath();%>?id=${element.id_type }&action=edit&value=${element.type_mission }"><i
@@ -83,6 +82,7 @@
 								</table>
 							</div>
 						</div>
+						</c:if>
 					</div>
 				</div>
 
@@ -90,7 +90,7 @@
 					<div class="col-12 col-xl-6">
 						<div class="card">
 							<div class="card-body">
-								<h5 class="card-title">Ajouter / Modifier / Supprimer</h5>
+								<h5 class="card-title">Ajouter / Modifier / Supprimer vos services</h5>
 								<form method="post">
 									<div class="mb-3 ">
 										<label for="exampleInputPassword1" class="form-label">Entrez

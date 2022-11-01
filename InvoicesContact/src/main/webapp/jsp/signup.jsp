@@ -33,23 +33,23 @@
 			<h1 class="text-light sign-up__title">Vous allez recréer un compte</h1>
 			<form class="sign-up-form form"  method="post">
 				<label class="form-label-wrapper">
-					<p  class="form-label">Nom</p> <input name="nom" class="form-input" type="text"
+					<span  class="form-label">Nom</span> <input name="nom" class="form-input" type="text"
 					required>
 				</label> <label class="form-label-wrapper">
-					<p class="form-label">Prenom</p> <input name="prenom" class="form-input"
+					<span class="form-label">Prenom</span> <input name="prenom" class="form-input"
 					type="text" required>
 				</label> <label class="form-label-wrapper">
-					<p class="form-label">Email</p> <input name="email" class="form-input"
+					<span class="form-label">Email</span> <input name="email" class="form-input"
 					type="email" required>
 				</label>
 				<label class="form-label-wrapper">
-					<p class="form-label">Téléphone</p> <input min="0" name="telephone" class="form-input"
+					<span class="form-label">Téléphone</span> <input min="0" name="telephone" class="form-input"
 					type="number" required>
 				</label> <label class="form-label-wrapper">
-					<p class="form-label">Mot de passe</p> <input name="password" class="form-input"
+					<span class="form-label">Mot de passe</span> <input name="password" class="form-input"
 					type="password" required>
 				</label> <label class="form-label-wrapper">
-					<p class="form-label">Confirmer mot de passe</p> <input name="confirm_password"
+					<span class="form-label">Confirmer mot de passe</span> <input name="confirm_password"
 					class="form-input" type="password" required>
 				</label>
 				<button name="connecter" class="form-btn primary-default-btn transparent-btn">Se
