@@ -89,7 +89,7 @@
 											</div>
 											<div class="mb-3 ">
 												<label for="exampleInputPassword1" class="form-label">Adresse</label>
-												<input name="adresse" title="ex: 2 rue Brassens.."
+												<input name="adresse" title="ex: 2 rue Brassens..PAS D'ESPACES À LA FIN"
 													type="text" class="form-control border"
 													id="exampleInputPassword1">
 											</div>
@@ -239,7 +239,7 @@
 											<div class="mb-3 ">
 												<label for="exampleInputPassword1" class="form-label">Adresse</label>
 												<input name="adresse" value="${client_a_modifier.adresse }"
-													title="ex: 2 rue Brassens.." type="text"
+													title="ex: 2 rue Brassens.. PAS D'ESPACES À LA FIN" type="text"
 													class="form-control border" id="exampleInputPassword1">
 											</div>
 											<div class="mb-3 ">

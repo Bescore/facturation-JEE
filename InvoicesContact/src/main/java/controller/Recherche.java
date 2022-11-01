@@ -7,17 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.ClientDao;
+import modele.Clients;
+
 /**
- * Servlet implementation class Structure
+ * Servlet implementation class Recherche
  */
-@WebServlet("/Structure")
-public class Structure extends HttpServlet {
+@WebServlet("/Recherche")
+public class Recherche extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Structure() {
+    public Recherche() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,7 +32,29 @@ public class Structure extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		request.getRequestDispatcher("jsp/structure.jsp").include(request, response);
+		
+		if( request.getParameter("recherche_input")!=null&& !request.getParameter("recherche_input").isEmpty()) {
+			
+			String motRecherche=request.getParameter("recherche_input");
+			
+			//creer un client
+			Clients newClient=new Clients();
+			
+			newClient.setNom(motRecherche);
+			
+			//Creer un clientDao
+			ClientDao newClientDao=new ClientDao();
+			
+			if(newClientDao.SearchClient(newClient).size()!=0) {
+				
+				//READ et set ATTRIBUTE
+				request.setAttribute("resultat", newClientDao.SearchClient(newClient));
+				
+			}
+			
+		}
+		
+		request.getRequestDispatcher("jsp/recherche.jsp").include(request, response);
 	}
 
 	/**
@@ -37,7 +62,6 @@ public class Structure extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
 		doGet(request, response);
 	}
 

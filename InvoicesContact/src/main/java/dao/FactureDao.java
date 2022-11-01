@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import modele.Clients;
 import modele.ConnectionBDD;
 import modele.Facture;
-import modele.Type;
 
 public class FactureDao implements Interface<Facture> {
 	Connection connect = new ConnectionBDD().getConnection();
@@ -83,6 +82,18 @@ public class FactureDao implements Interface<Facture> {
 	@Override
 	public boolean Delete(Facture object) {
 		// TODO Auto-generated method stub
+		try {
+			PreparedStatement sql = connect.prepareStatement("DELETE FROM facture WHERE id_facture=?");
+			
+			sql.setInt(1, object.getId_facture());
+			
+			sql.executeUpdate();
+			sql.close();
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
 		return false;
 	}
 
