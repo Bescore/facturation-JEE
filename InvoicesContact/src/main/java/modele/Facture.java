@@ -49,8 +49,8 @@ public class Facture {
 		return somme;
 	}
 
-	public void setSomme(String somme) {
-		this.somme = somme;
+	public void setSomme(String string) {
+		this.somme = string;
 	}
 
 	public String getNbr_totale_heure() {

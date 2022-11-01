@@ -39,7 +39,7 @@ public class FactureDao implements Interface<Facture> {
 		ArrayList<Facture> factureTab = new ArrayList<Facture>();
 		try {
 
-			PreparedStatement sql = connect.prepareStatement("SELECT *, DATE_FORMAT(date, '%d/%m/%Y à %H:%i:%S')as dateformat FROM facture INNER JOIN client ON client.Id_client=facture.client");
+			PreparedStatement sql = connect.prepareStatement("SELECT *, DATE_FORMAT(date, '%d/%m/%Y à %H:%i:%S')as dateformat FROM facture LEFT JOIN client ON client.Id_client=facture.client");
 			ResultSet rs = sql.executeQuery();
 			
 			while(rs.next()) {
@@ -89,7 +89,44 @@ public class FactureDao implements Interface<Facture> {
 	@Override
 	public ArrayList<Facture> Findby(Facture object) {
 		// TODO Auto-generated method stub
-		return null;
+		//FindByIdentifiant
+		ArrayList<Facture> factureTab = new ArrayList<Facture>();
+		try {
+
+			PreparedStatement sql = connect.prepareStatement("SELECT * FROM facture INNER JOIN client ON client.Id_client=facture.client AND identifiant=? AND payee=? ");
+			sql.setString(1, object.getIdentifiant());
+			sql.setInt(2, 0);
+			ResultSet rs = sql.executeQuery();
+			
+			if(rs.next()) {
+				
+				//creer client
+				Clients newClient=new Clients();
+				
+				newClient.setId_personne(rs.getInt("id_client"));
+				newClient.setNom(rs.getString("nom"));
+				newClient.setPrenom(rs.getString("prenom"));
+				
+				
+				//creer un type
+				Facture newFacture=new Facture();
+				
+				newFacture.setId_facture(rs.getInt("id_facture"));
+				newFacture.setIdentifiant(rs.getString("identifiant"));
+				newFacture.setSomme(rs.getString("somme"));
+				newFacture.setNbr_totale_heure(rs.getString("nbr_totale_heure"));
+				newFacture.setClient(newClient);
+				newFacture.setPayee(rs.getInt("payee"));
+				
+				factureTab.add(newFacture);
+			}
+			sql.close();
+			rs.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		return factureTab;
 	}
 	
 	
@@ -217,5 +254,24 @@ public class FactureDao implements Interface<Facture> {
 			e.getMessage();
 		}
 		return 0;
+	}
+	
+	public boolean UpdatePaiementClient(Facture object) {
+		// TODO Auto-generated method stub
+		try {
+			PreparedStatement sql = connect.prepareStatement("UPDATE facture SET payee=? WHERE identifiant=?");
+
+			sql.setInt(1, 1);
+			sql.setString(2, object.getIdentifiant());
+			
+
+			sql.executeUpdate();
+			sql.close();
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		return false;
 	}
 }
