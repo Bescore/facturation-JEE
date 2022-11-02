@@ -29,7 +29,7 @@
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
 <!-- Favicon -->
-<link rel="shortcut icon" href="./img/svg/logo.svg" type="image/x-icon">
+<link rel="shortcut icon" href="img/svg/logo.svg" type="image/x-icon">
 <!-- Custom styles -->
 <link rel="stylesheet" href="./css/style.min.css">
 </head>
@@ -54,7 +54,7 @@
 						<div class="col-12 col-xl">
 							<div class="card">
 								<div class="card-body " style="height: 18rem;">
-									<img alt="consult" src="img/background/consulting.svg">
+									<img loading="lazy" alt="consult" src="img/background/consulting.svg">
 								</div>
 							</div>
 						</div>

@@ -65,9 +65,9 @@
 	<div class="sidebar-footer">
 		<a href="##" class="sidebar-user"> <span class="sidebar-user-img">
 				<picture>
-				<source srcset="./img/avatar/avatar-illustrated-02.webp"
+				<source srcset="img/avatar/avatar-illustrated-02.webp"
 					type="image/webp">
-				<img src="./img/avatar/avatar-illustrated-02.png" alt="User name"></picture>
+				<img src="img/avatar/avatar-illustrated-02.png" alt="User name"></picture>
 		</span> <span class="sidebar-user-info"> <span
 				class="sidebar-user__title">L. jean-marie</span> <span
 				class="sidebar-user__subtitle">Concepteur</span>
@@ -155,7 +155,7 @@
 						</span>
 					</button>
 					<ul class="users-item-dropdown nav-user-dropdown dropdown">
-						<li><a href="##"> <i data-feather="user"
+						<li><a href='<c:url value="/Profil"></c:url>'> <i data-feather="user"
 								aria-hidden="true"></i> <span>Mes informations</span>
 						</a></li>
 						<li><a class="danger"

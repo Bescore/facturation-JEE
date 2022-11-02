@@ -104,4 +104,42 @@ BCrypt encoder = new BCrypt();
 		return userstab;
 	}
 
+	public ArrayList<Utilisateur> FindbyId(int id_user) {
+		// TODO Auto-generated method stub
+
+		
+		ArrayList<Utilisateur> userstab= new ArrayList<Utilisateur>();
+		try {
+			PreparedStatement sql = connect.prepareStatement("SELECT * FROM utilisateur where id_utilisateur=?");
+			
+			sql.setInt(1, id_user);
+		
+			ResultSet rs=sql.executeQuery();
+			if(rs.next()) {
+				
+				
+				// Créer un user
+				Utilisateur user= new Utilisateur();
+				user.setId_personne(rs.getInt("id_utilisateur"));
+				user.setNom(rs.getString("nom"));
+				user.setPrenom(rs.getString("prenom"));
+				user.setEmail(rs.getString("email"));
+				user.setTelephone(rs.getString("telephone"));
+				user.setAdresse(rs.getString("adresse"));
+				user.setCode_postale(rs.getInt("code_postale"));
+				user.setPassword(rs.getString("password"));
+				user.setIsActive_personne(rs.getInt("isActive_personne"));
+				
+				//ajouter le user au tableau
+				userstab.add(user);
+				}
+			
+			sql.close();
+			rs.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		return userstab;
+	}
 }

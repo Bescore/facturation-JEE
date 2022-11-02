@@ -53,7 +53,7 @@ public class Signin extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		// recuperer session
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(true);
 
 		// recuperer les données du formulaire
 		String email = request.getParameter("email");
