@@ -208,8 +208,9 @@
 										<h5 class="card-title">Ajouter / Modifier / Supprimer</h5>
 										<form method="post">
 											<div class="mb-3 ">
-											<input name="idClient" hidden="hidden" value="${client_a_modifier.id_personne}">
-												<label for="exampleInputPassword1" class="form-label">Nom</label>
+												<input name="idClient" hidden="hidden"
+													value="${client_a_modifier.id_personne}"> <label
+													for="exampleInputPassword1" class="form-label">Nom</label>
 												<input name="nom" value="${client_a_modifier.nom }"
 													title="texte sans accents, sans caractères spéciaux"
 													type="text" class="form-control border"
@@ -239,8 +240,9 @@
 											<div class="mb-3 ">
 												<label for="exampleInputPassword1" class="form-label">Adresse</label>
 												<input name="adresse" value="${client_a_modifier.adresse }"
-													title="ex: 2 rue Brassens.. PAS D'ESPACES À LA FIN" type="text"
-													class="form-control border" id="exampleInputPassword1">
+													title="ex: 2 rue Brassens.. PAS D'ESPACES À LA FIN"
+													type="text" class="form-control border"
+													id="exampleInputPassword1">
 											</div>
 											<div class="mb-3 ">
 												<label for="exampleInputPassword1" class="form-label">Code
@@ -282,6 +284,13 @@
 												</div>
 											</div>
 										</form>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-xl-6 my-2 ">
+								<div class="card my-4">
+									<div class="card-body">
+									<img alt="update" src="img/background/update.svg" class="">
 									</div>
 								</div>
 							</div>

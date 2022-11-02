@@ -30,13 +30,13 @@
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-<script src="/html2pdf.bundle.min.js"></script>
+
 <!-- printThis -->
 <script defer src="js/printThis.js"></script>
 <!-- genererFacture -->
 <script defer src="js/genererFacture.js"></script>
 <!-- Alerts -->
-<script defer src="js/modal_alerts"></script>
+<script defer src="js/modal_alert.js"></script>
 <!-- Chart library -->
 <script defer src="plugins/chart.min.js"></script>
 <!-- Icons library -->
