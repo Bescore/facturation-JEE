@@ -104,7 +104,7 @@ public class FactureDao implements Interface<Facture> {
 		ArrayList<Facture> factureTab = new ArrayList<Facture>();
 		try {
 
-			PreparedStatement sql = connect.prepareStatement("SELECT * FROM facture INNER JOIN client ON client.Id_client=facture.client AND identifiant=? AND payee=? ");
+			PreparedStatement sql = connect.prepareStatement("SELECT * FROM facture INNER JOIN client ON client.Id_client=facture.client AND identifiant=? AND payee=?");
 			sql.setString(1, object.getIdentifiant());
 			sql.setInt(2, 0);
 			ResultSet rs = sql.executeQuery();

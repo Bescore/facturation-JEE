@@ -44,7 +44,7 @@ public class Paiement extends HttpServlet {
 		
 		//ajouter l'identifiant à la facture
 		newFacture.setIdentifiant(identifiantFacture);
-
+		
 		if(identifiantFacture!=null
 				&& !identifiantFacture.isEmpty() 
 				&& newFactureDao.Findby(newFacture).size()!=0 

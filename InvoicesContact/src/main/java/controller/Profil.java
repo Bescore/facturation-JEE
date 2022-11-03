@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UtilisateurDao;
+import modele.Utilisateur;
 
 /**
  * Servlet implementation class Profil
@@ -50,7 +52,7 @@ public class Profil extends HttpServlet {
 		//CHANGER LE VISUEL AU CLIQUE DU BOUTON MODIFIER
 		if(request.getParameter("modifier")!=null) {
 			
-			//recuperer l'id  du client selectionné
+			//recuperer l'id  de l'utilisateur selectionné
 			int id_user=(int) session.getAttribute("id_user");
 			
 			//rechercher l'utilisateur et ses infos (by id) et les renvoyer au jsp
@@ -58,11 +60,57 @@ public class Profil extends HttpServlet {
 			 
 			 
 		}
-		
-		
-		
-		
-		
+			
+		if(request.getParameter("valider")!=null 
+				&& request.getParameter("nom") != null 
+				&& request.getParameter("prenom") != null 
+				&& request.getParameter("email") != null 
+				&& request.getParameter("adresse") != null
+				&& request.getParameter("telephone") != null 
+				&& request.getParameter("code_postale") != null 
+				&& Pattern.matches("^[a-zA-Z- ]+$", request.getParameter("nom"))
+				&& Pattern.matches("^[a-zA-Z- ]+$", request.getParameter("prenom"))
+				&& Pattern.matches("^[a-zA-Z0-9._%-]+[@]+[a-zA-Z0-9.-]+[.]+[a-zA-Z]{2,4}$", request.getParameter("email"))
+				&& Pattern.matches("[0-9]{1,3}(?:(?:[,. ]){1}[-a-zA-Zàâäéèêëïîôöùûüç]+)+", request.getParameter("adresse"))) {
+			
+			//on met les données du formulaire dans des variables
+			String nom=request.getParameter("nom");
+			String prenom=request.getParameter("prenom");
+			String email=request.getParameter("email");
+			String adresse=request.getParameter("adresse");
+			String telephone=request.getParameter("telephone");
+			String code_postale=request.getParameter("code_postale");
+			
+			
+			//On recupère l'id de l'utilisateur  dans la session
+			int id_user=(int) session.getAttribute("id_user");
+			
+			//On crée un nouvel utilisateur
+			Utilisateur newUser= new Utilisateur();
+			
+			newUser.setId_personne(id_user);
+			newUser.setNom(nom);
+			newUser.setPrenom(prenom);
+			newUser.setEmail(email);
+			newUser.setAdresse(adresse);
+			newUser.setTelephone(telephone);
+			newUser.setCode_postale(Integer.valueOf(code_postale));
+			
+			//On lance l'update avec l'utilisateurDao créé plus haut !
+			
+			
+			if (newUtilisateurDao.Update(newUser)) {
+			
+			//ON met à jour les informations en session
+			session.setAttribute("nom", nom);
+			session.setAttribute("prenom", prenom);
+			session.setAttribute("email", email);
+			session.setAttribute("telephone", telephone);
+			session.setAttribute("adresse", adresse);
+			session.setAttribute("code_postale", code_postale);
+			
+			}	
+		}
 		doGet(request, response);
 	}
 

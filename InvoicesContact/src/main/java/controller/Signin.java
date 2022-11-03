@@ -104,7 +104,6 @@ public class Signin extends HttpServlet {
 					session.setAttribute("code_postale", usertab.get(0).getCode_postale());
 					session.setAttribute("mot_de_passe", usertab.get(0).getPassword().substring(0, 10));
 					session.setAttribute("id_user", usertab.get(0).getId_personne());
-					session.setAttribute("isconnected", 1);
 					session.setAttribute("token", token);
 
 					// rediriger vers la page park

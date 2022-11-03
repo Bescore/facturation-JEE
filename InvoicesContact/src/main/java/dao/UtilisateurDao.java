@@ -50,6 +50,25 @@ public class UtilisateurDao implements Interface <Utilisateur> {
 	@Override
 	public boolean Update(Utilisateur object) {
 		// TODO Auto-generated method stub
+		//On modifie tout sauf le mot de passe
+		try {
+			PreparedStatement sql = connect.prepareStatement("UPDATE  utilisateur SET nom=?,prenom=?,email=?,telephone=?,adresse=?,code_postale=? WHERE id_utilisateur=?");
+			
+			sql.setString(1, object.getNom());
+			sql.setString(2, object.getPrenom());
+			sql.setString(3, object.getEmail());
+			sql.setString(4, object.getTelephone());
+			sql.setString(5, object.getAdresse());
+			sql.setInt(6, object.getCode_postale());
+			sql.setInt(7,object.getId_personne());
+
+			sql.executeUpdate();
+			sql.close();
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
 		return false;
 	}
 

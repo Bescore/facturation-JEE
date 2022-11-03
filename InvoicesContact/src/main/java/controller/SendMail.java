@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
 import dao.FactureDao;
 import modele.Clients;
 import modele.Facture;
@@ -59,13 +61,14 @@ public class SendMail extends HttpServlet {
 			String contextPath="192.168.1.41:8080/invoicescontact";
 			
 			//creer numero de facture
-			// creer token ou generer un array de byte, qu'on va ensuite tostring et encoder
-			// en base64
+			// creer token ou generer un array de byte, hasher grâce à Bcrypt pour creer une chaine 
+			//de caractère aleatoire
+			BCrypt encoder = new BCrypt();
 			SecureRandom random = new SecureRandom();
 			byte bytes[] = new byte[20];
 			random.nextBytes(bytes);
-			String token = Base64.getEncoder().encodeToString(bytes);
-			
+			@SuppressWarnings("static-access")
+			String token = encoder.hashpw(bytes,BCrypt.gensalt());
 			
 			//SendMail.envoi(mois, annee)
 			String message1="<!DOCTYPE html>\r\n"
