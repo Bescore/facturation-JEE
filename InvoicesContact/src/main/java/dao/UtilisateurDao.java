@@ -50,6 +50,25 @@ public class UtilisateurDao implements Interface <Utilisateur> {
 	@Override
 	public boolean Update(Utilisateur object) {
 		// TODO Auto-generated method stub
+		//On modifie tout sauf le mot de passe
+		try {
+			PreparedStatement sql = connect.prepareStatement("UPDATE  utilisateur SET nom=?,prenom=?,email=?,telephone=?,adresse=?,code_postale=? WHERE id_utilisateur=?");
+			
+			sql.setString(1, object.getNom());
+			sql.setString(2, object.getPrenom());
+			sql.setString(3, object.getEmail());
+			sql.setString(4, object.getTelephone());
+			sql.setString(5, object.getAdresse());
+			sql.setInt(6, object.getCode_postale());
+			sql.setInt(7,object.getId_personne());
+
+			sql.executeUpdate();
+			sql.close();
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
 		return false;
 	}
 
@@ -104,4 +123,42 @@ BCrypt encoder = new BCrypt();
 		return userstab;
 	}
 
+	public ArrayList<Utilisateur> FindbyId(int id_user) {
+		// TODO Auto-generated method stub
+
+		
+		ArrayList<Utilisateur> userstab= new ArrayList<Utilisateur>();
+		try {
+			PreparedStatement sql = connect.prepareStatement("SELECT * FROM utilisateur where id_utilisateur=?");
+			
+			sql.setInt(1, id_user);
+		
+			ResultSet rs=sql.executeQuery();
+			if(rs.next()) {
+				
+				
+				// Créer un user
+				Utilisateur user= new Utilisateur();
+				user.setId_personne(rs.getInt("id_utilisateur"));
+				user.setNom(rs.getString("nom"));
+				user.setPrenom(rs.getString("prenom"));
+				user.setEmail(rs.getString("email"));
+				user.setTelephone(rs.getString("telephone"));
+				user.setAdresse(rs.getString("adresse"));
+				user.setCode_postale(rs.getInt("code_postale"));
+				user.setPassword(rs.getString("password"));
+				user.setIsActive_personne(rs.getInt("isActive_personne"));
+				
+				//ajouter le user au tableau
+				userstab.add(user);
+				}
+			
+			sql.close();
+			rs.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getMessage();
+		}
+		return userstab;
+	}
 }

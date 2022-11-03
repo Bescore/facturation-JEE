@@ -1,7 +1,5 @@
 package modele;
 
-import java.util.Date;
-
 public class Facture {
 	private int id_facture;
 	private String identifiant;

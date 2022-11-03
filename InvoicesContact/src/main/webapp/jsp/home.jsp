@@ -32,7 +32,7 @@
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
 <!-- Favicon -->
-<link rel="shortcut icon" href="./img/svg/logo.svg" type="image/x-icon">
+<link rel="shortcut icon" href="img/svg/logo.svg" type="image/x-icon">
 <!-- Custom styles -->
 <link rel="stylesheet" href="./css/style.min.css">
 </head>
@@ -63,7 +63,7 @@
 											clients</h6>
 
 
-										<a href="<c:url value="/Client"></c:url>"><img
+										<a href="<c:url value="/Client"></c:url>"><img loading="lazy"
 											alt="clients" class="my-5" style="height: 21rem;"
 											src="img/background/clients.svg"></a>
 
@@ -80,7 +80,7 @@
 										<h6 class="my-2 fw-bold">2 . Ajoutez le type de service
 											que vous fournissez</h6>
 
-										<a href="<c:url value="/TypeActivite"></c:url>"><img
+										<a href="<c:url value="/TypeActivite"></c:url>"><img loading="lazy"
 											alt="business" class="my-5" style="height: 21rem;"
 											src="img/background/business.svg"></a>
 
@@ -94,7 +94,7 @@
 										<h6 class="my-2 fw-bold">3 . Gérez vos heures et factures
 										</h6>
 
-										<img alt="heure" class="my-5" style="height: 21rem;"
+										<img loading="lazy" alt="heure" class="my-5" style="height: 21rem;"
 											src="img/background/heure.svg">
 
 									</div>
@@ -147,7 +147,7 @@
 									<div class="col-12 col-xl my-2 ">
 										<div class="card">
 											<div class="card-body">
-												<img
+												<img loading="lazy"
 													style="width: 100%; height: 25rem; objectif-fit: cover;"
 													src="img/background/business.svg">
 											</div>
