@@ -47,7 +47,7 @@ public class SendMail extends HttpServlet {
 			String nom_user=(String) session.getAttribute("nom");
 			String prenom_user=(String) session.getAttribute("prenom");
 			String adresse_user=(String) session.getAttribute("adresse");
-			String mail_user=(String) session.getAttribute("mail");
+			String mail_user=(String) session.getAttribute("email");
 			
 			String id_client=request.getParameter("id_client");
 			String nom=request.getParameter("nom");
