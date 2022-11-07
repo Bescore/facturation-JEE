@@ -32,6 +32,8 @@
 					<ul class="cat-sub-menu">
 						<li><a href="<c:url value="/Client"></c:url>">Gérer les
 								clients</a></li>
+						<li><a href="<c:url value="/Demande"></c:url>">Demandes
+								des clients</a></li>
 					</ul></li>
 				<li><a class="show-cat-btn" href="##"> <span
 						class="icon edit" aria-hidden="true"></span>Activités <span
@@ -82,8 +84,10 @@
 			<div class="main-nav-start">
 				<form method="post" action="<%request.getContextPath();%>Recherche">
 					<div class="search-wrapper">
-						<input type="text" name="recherche_input" placeholder="Rechercher un client..." required>
-						<button type="submit" name="rechercher" class="btn btn-primary m-2">
+						<input type="text" name="recherche_input"
+							placeholder="Rechercher un client..." required>
+						<button type="submit" name="rechercher"
+							class="btn btn-primary m-2">
 							<i class="fa-solid fa-magnifying-glass"></i>
 						</button>
 					</div>
@@ -109,39 +113,20 @@
 				<div class="notification-wrapper">
 					<button class="gray-circle-btn dropdown-btn" title="notifications"
 						type="button">
-						<span class="sr-only">To messages</span> <span
-							class="icon notification inactive" aria-hidden="true"></span>
+						<span class="sr-only">To messages</span>
+						<!-- la ligne du dessous, dans la classe possibilité de passer la cloche active et incative -->
+						<span class="icon notification inactive" aria-hidden="true"></span>
 					</button>
 					<ul class="users-item-dropdown notification-dropdown dropdown">
 						<li><a href="##"> <span
 								class="notification-dropdown-icon info"> <i
 									data-feather="check"></i>
 							</span> <span class="notification-dropdown-text"> <span
-									class="notification-dropdown__title">System just updated</span>
-									<span class="notification-dropdown__subtitle">The system
-										has been successfully upgraded. Read more here.</span>
+									class="notification-dropdown__title">En developpement...</span>
+									<span class="notification-dropdown__subtitle">Les
+										notifications..</span>
 							</span>
 						</a></li>
-						<li><a href="##"> <span
-								class="notification-dropdown-icon danger"> <i
-									data-feather="info" aria-hidden="true"></i>
-							</span> <span class="notification-dropdown-text"> <span
-									class="notification-dropdown__title">The cache is full!</span>
-									<span class="notification-dropdown__subtitle">Unnecessary
-										caches take up a lot of memory space and interfere ...</span>
-							</span>
-						</a></li>
-						<li><a href="##"> <span
-								class="notification-dropdown-icon info"> <i
-									data-feather="check" aria-hidden="true"></i>
-							</span> <span class="notification-dropdown-text"> <span
-									class="notification-dropdown__title">New Subscriber
-										here!</span> <span class="notification-dropdown__subtitle">A
-										new subscriber has subscribed.</span>
-							</span>
-						</a></li>
-						<li><a class="link-to-page" href="##">Go to Notifications
-								page</a></li>
 					</ul>
 				</div>
 				<div class="nav-user-wrapper">
@@ -155,8 +140,9 @@
 						</span>
 					</button>
 					<ul class="users-item-dropdown nav-user-dropdown dropdown">
-						<li><a href='<c:url value="/Profil"></c:url>'> <i data-feather="user"
-								aria-hidden="true"></i> <span>Mes informations</span>
+						<li><a href='<c:url value="/Profil"></c:url>'> <i
+								data-feather="user" aria-hidden="true"></i> <span>Mes
+									informations</span>
 						</a></li>
 						<li><a class="danger"
 							href="<c:url value="/Deconnexion"></c:url>"> <i
