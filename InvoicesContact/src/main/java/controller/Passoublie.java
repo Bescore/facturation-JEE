@@ -45,6 +45,8 @@ public class Passoublie extends HttpServlet {
 		random.nextBytes(bytes);
 		@SuppressWarnings("static-access")
 		String token = encoder.hashpw(bytes,BCrypt.gensalt());
+		@SuppressWarnings("static-access")
+		String secret=encoder.hashpw("bibi",BCrypt.gensalt());
 		
 		
 		
@@ -52,7 +54,7 @@ public class Passoublie extends HttpServlet {
 		String email="jeanmar-97.1@hotmail.fr";
 		
 		//href
-		String href="192.168.1.41:8080/invoicescontact/Signup?token="+token+"&nom=dutaud&secret=bibi";
+		String href="192.168.1.41:8080/invoicescontact/Signup?token="+token+"&nom=dutaud&secret="+secret+"";
 		
 		//message
 		String message="vous avez oublié votre mot de passe, cliquez <a href="+href+">ici</a>";

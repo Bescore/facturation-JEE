@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
 import dao.UtilisateurDao;
 import modele.Utilisateur;
 
@@ -31,14 +33,16 @@ public class Signup extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@SuppressWarnings("static-access")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
+		BCrypt encoder = new BCrypt();
 
 		// verifier les champs attendu
 		if (request.getParameter("token") != null && request.getParameter("token").length() == 60
-				&& request.getParameter("secret") != null && request.getParameter("secret").equals("bibi")
+				&& request.getParameter("secret") != null && encoder.checkpw("bibi", request.getParameter("secret"))
 				&& request.getParameter("nom") != null && request.getParameter("nom").equals("dutaud")) {
 
 			request.getRequestDispatcher("jsp/signup.jsp").forward(request, response);

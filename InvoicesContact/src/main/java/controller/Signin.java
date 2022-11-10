@@ -106,7 +106,7 @@ public class Signin extends HttpServlet {
 					session.setAttribute("id_user", usertab.get(0).getId_personne());
 					session.setAttribute("token", token);
 
-					// rediriger vers la page park
+					// rediriger vers la page home
 					response.sendRedirect(request.getContextPath() + "/Home");
 				}else {
 					request.setAttribute("erreur_connexion", 1);
