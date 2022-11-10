@@ -30,7 +30,7 @@
 	<div class="layer"></div>
 	<main class="page-center">
 		<article class="sign-up">
-			<h1 class="text-light sign-up__title">Vous allez recréer un compte</h1>
+			<h1 class="text-light sign-up__title"> Créer un compte</h1>
 			<form class="sign-up-form form"  method="post">
 				<label class="form-label-wrapper">
 					<span  class="form-label">Nom</span> <input name="nom" class="form-input" type="text"
@@ -58,7 +58,7 @@
 		</article>
 	</main>
 	<!-- Chart library -->
-	<script src="./plugins/chart.min.js"></script>
+	<script src="plugins/chart.min.js"></script>
 	<!-- Icons library -->
 	<script src="plugins/feather.min.js"></script>
 	<!-- Custom scripts -->

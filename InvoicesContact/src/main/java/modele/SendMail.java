@@ -26,14 +26,14 @@ public class SendMail {
 		props.put("mail.smtp.port", "465"); // SMTP Port
 		Session session = Session.getDefaultInstance(props, new Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication("cdatest21260@gmail.com", "rzzwqrypshsmvrqe");
+				return new PasswordAuthentication("cdatest21260@gmail.com", "ggkffuadscvtjyww");
 			}
 		});
 		try {
 			Message msg = new MimeMessage(session);
 			msg.setFrom(new InternetAddress(mailFrom));
 			msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mailTo));
-			msg.setSubject("Invoices and contact");
+			msg.setSubject("Merci de votre confiance");
 			msg.setContent(""+message+"","text/html;charset=utf-8");
 			Transport.send(msg);
 			System.out.println("mail envoyé ");
