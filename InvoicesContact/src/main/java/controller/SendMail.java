@@ -66,7 +66,9 @@ public class SendMail extends HttpServlet {
 				String telephone = request.getParameter("tel");
 				String apayer = request.getParameter("apayer");
 				String datetime = request.getParameter("datetime");
-				String contextPath = "192.168.1.41:8080/invoicescontact";
+				//Nous permet de récupérer dynamiquement l'adresse peut importe l'hébergement de l'application ( 8 car sendmail a 8 caractère)
+				//substring prend 2 paramètre le début et la fin
+				String contextPath = request.getRequestURL().substring(0,request.getRequestURL().length()-8);
 
 				// creer numero de facture
 				// creer token ou generer un array de byte, hasher grâce à Bcrypt pour creer une
@@ -477,7 +479,7 @@ public class SendMail extends HttpServlet {
 						+ "																	<div class style=\"font-size: 12px; mso-line-height-alt: 14.399999999999999px; color: #56B500; line-height: 1.2; font-family: Oxygen, Trebuchet MS, Helvetica, sans-serif;\">\r\n"
 						+ "																		<p style=\"margin: 0; font-size: 14px; mso-line-height-alt: 16.8px;\">Méthode de paiement :</p>\r\n"
 						+ "																		<p style=\"margin: 0; font-size: 14px; mso-line-height-alt: 16.8px;\"><span style=\"font-size:17px;\">PAYPAL /CB</span> <a href=\""
-						+ contextPath + "/Paiement?facture=" + token + "&v=" + apayer + "\">Payez ici</a></p> \r\n"
+						+ contextPath + "Paiement?facture=" + token + "&v=" + apayer + "\">Payez ici</a></p> \r\n"
 						+ "																	</div>\r\n"
 						+ "																</div>\r\n"
 						+ "															</td>\r\n"
