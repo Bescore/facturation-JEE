@@ -5,28 +5,30 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionBDD {
-	public  Connection getConnection() {
-	Connection connect = null;
-		
-	String url = "jdbc:mysql://localhost/";
-    String dbName = "invoices_contact";
-    String user="root";
-    String pwd="";
+	public Connection getConnection() {
+		try {
+		Connection connect = null;
+
+		String url = "jdbc:mysql://localhost/";
+		String dbName = "invoices_contact";
+		String user = "root";
+		String pwd = "";
 
 		
-    try {
-    Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 
-         try {
-    connect = DriverManager.getConnection(url+dbName,user,pwd);
-    System.out.println("connect ok");
+			try {
+				connect = DriverManager.getConnection(url + dbName, user, pwd);
+				System.out.println("connect ok");
 
-    } catch (SQLException e) {
-   
-    e.printStackTrace();
-    }
-    } catch (ClassNotFoundException e) {e.printStackTrace();
-    }
-    return connect;
-    }
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
+			return connect;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

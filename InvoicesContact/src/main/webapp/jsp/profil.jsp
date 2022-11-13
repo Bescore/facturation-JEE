@@ -256,6 +256,7 @@
 										<img loading="lazy" alt=""
 											src="img/avatar/avatar-illustrated-04.webp">
 									</div>
+									<p class="text-center p-3 text-danger fw-bl"><span><i class="fa-solid fa-triangle-exclamation mx-2 fa-2x"></i></span>Tous les champs doivent être remplis pour effectuer une modification !</p>
 								</div>
 							</div>
 					</c:if>

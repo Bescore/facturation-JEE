@@ -55,7 +55,7 @@ public class Passoublie extends HttpServlet {
 		
 		//Nous permet de récupérer dynamiquement l'adresse peut importe l'hébergement de l'application(pourquoi 10,le nom du servlet "Passoublie" a 10 caractère)
 		//href
-		String href=""+request.getRequestURL().substring(0,request.getRequestURL().length()-10)+"Signup?token="+token+"&nom=dutaud&secret="+secret+"";
+		String href=""+request.getRequestURL().substring(0,request.getRequestURL().length()-10)+"Signup?token="+token+"&name=dutaud&secret="+secret+"";
 		
 		//message
 		String message="vous avez oublié votre mot de passe, cliquez <a href="+href+">ici</a>";

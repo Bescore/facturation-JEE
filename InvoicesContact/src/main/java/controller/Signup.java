@@ -43,7 +43,7 @@ public class Signup extends HttpServlet {
 		// verifier les champs attendu
 		if (request.getParameter("token") != null && request.getParameter("token").length() == 60
 				&& request.getParameter("secret") != null && encoder.checkpw("bibi", request.getParameter("secret"))
-				&& request.getParameter("nom") != null && request.getParameter("nom").equals("dutaud")) {
+				&& request.getParameter("name") != null && request.getParameter("name").equals("dutaud")) {
 
 			request.getRequestDispatcher("jsp/signup.jsp").forward(request, response);
 		} else {

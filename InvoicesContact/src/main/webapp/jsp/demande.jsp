@@ -75,7 +75,7 @@
 												</c:forEach>
 											</select>
 											<h5 class="card-title my-3">Date</h5>
-											<input type="date" name="date">
+											<input type="date" name="date" required>
 											<h5 class="card-title my-4">Heure</h5>
 											<select class="form-select" name="heure"
 												aria-label="Default select example">

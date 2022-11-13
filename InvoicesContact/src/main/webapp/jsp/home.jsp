@@ -133,7 +133,7 @@
 												</select>
 												<div class="mb-3">
 													<label for="exampleInputEmail1" class="form-label my-2">Tarif
-														(par heures)</label> <input name="tarif" type="number" min="1"
+														(par heures)</label> <input name="tarif" type="number" min="1" required
 														class="form-control  border border-secondary  w-25"
 														id="exampleInputEmail1" aria-describedby="emailHelp">
 												</div>

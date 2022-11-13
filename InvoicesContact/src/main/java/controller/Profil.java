@@ -72,7 +72,7 @@ public class Profil extends HttpServlet {
 			 
 			 
 		}
-			
+		
 		if(request.getParameter("valider")!=null 
 				&& request.getParameter("nom") != null 
 				&& request.getParameter("prenom") != null 
