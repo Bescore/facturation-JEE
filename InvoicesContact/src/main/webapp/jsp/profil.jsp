@@ -57,7 +57,7 @@
 										<img loading="lazy"
 											src="img/avatar/avatar-illustrated-04.webp" alt="avatar"
 											class="rounded-circle img-fluid" style="width: 150px;">
-										<h5 class="my-4">${prenom }${nom}</h5>
+										<h5 class="my-4">${prenom } ${nom}</h5>
 										<p class="text-muted mb-4">Entrepreneur</p>
 										<button type="submit" name="modifier"
 											class="btn btn-outline-primary">Modifier</button>
