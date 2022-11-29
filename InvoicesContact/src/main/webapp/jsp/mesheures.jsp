@@ -240,7 +240,7 @@
 								<div class="col col-xl my-2 text-end  ">
 
 									<button type="button" class="btn btn-primary my-4"
-										id="FactureBtn" onClick="return genere_Facture()">Imprimer
+										id="FactureBtn" onClick="return imprimerFacture()">Imprimer
 										facture</button>
 									<button name="genererFacture" type="button"
 										data-bs-toggle="modal" data-bs-target="#exampleModal"
@@ -252,7 +252,7 @@
 						<c:if test="${empty invoice  }">
 							<input id="inputFacture" name="inputFacture_html" hidden="hidden"
 								type="text">
-							<div hidden="hidden" id="genererFactureDiv">
+							<div hidden="hidden" id="imprimerFactureDiv">
 								<div class="row mx-auto">
 									<div class="col col-xl my-2 ">
 
@@ -263,7 +263,6 @@
 												<hr>
 												<br> <br> <br>
 												<div class="row">
-
 													<div class="row mx-auto">
 														<div class="col col-xl my-2 text-start "
 															style="font-size: 13px">
@@ -283,9 +282,8 @@
 
 														</div>
 													</div>
-
 												</div>
-												<br> <br> <br>
+												<br> 
 												<div class="row">
 													<div class="col col-xl my-2 ">
 														<div class="card ">
@@ -296,11 +294,7 @@
 													</div>
 												</div>
 												<div class="row">
-
-
-
 													<div class="col col-xl my-2">
-
 														<div class="card mx-auto  overflow-auto">
 															<div class="card-body  table-responsive ">
 

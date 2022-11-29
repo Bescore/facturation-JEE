@@ -90,7 +90,7 @@ public class Signin extends HttpServlet {
 
 					// Gerer cookie, mettre le token dans le cookie//
 					Cookie INC_AUTH = new Cookie("INC_AUTH", token);
-					// cookie valable 15minutes
+					// cookie valable 30minutes
 					INC_AUTH.setMaxAge(30 * 60);
 					// ajouter cookie au navigateur
 					response.addCookie(INC_AUTH);
