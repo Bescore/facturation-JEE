@@ -67,7 +67,7 @@ public class SendMail extends HttpServlet {
 				String apayer = request.getParameter("apayer");
 				String datetime = request.getParameter("datetime");
 				//Nous permet de récupérer dynamiquement l'adresse peut importe l'hébergement de l'application ( 8 car sendmail a 8 caractère)
-				//substring prend 2 paramètre le début et la fin
+				//substring prend 2 paramètre le début et la fin (efface le nombre de caractères selon les paramètres, nombre de début et nombre de fin)
 				String contextPath = request.getRequestURL().substring(0,request.getRequestURL().length()-8);
 
 				// creer numero de facture
