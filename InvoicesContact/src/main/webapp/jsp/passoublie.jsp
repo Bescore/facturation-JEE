@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Connexion | IC</title>
+<title>Mot de passe oublié | IC</title>
 <!-- bootstrap 5.0-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -30,29 +30,13 @@
 	<div class="layer"></div>
 	<main class="page-center">
 		<article class="sign-up">
-			<h1 class="text-light sign-up__title">Bienvenue !</h1>
-			<p class=" text-dark sign-up__subtitle">connectez-vous pour
-				continuer</p>
 			<form class="sign-up-form form" method="post">
-				<label class="form-label-wrapper">
-					<span class="form-label">Email</span> <input name="email"
-					class="form-input" type="email" placeholder="entrer votre email"
-					required>
-				</label> <label class="form-label-wrapper">
-					<span class="form-label">Mot de passe</span> <input name="password"
-					class="form-input" type="password"
-					placeholder="entrer votre mot de passe" required>
-				</label> <a class="link-info forget-link" href='<c:url value="/Passoublie"></c:url>'>Mot de passe oublié?</a>
-				<button name="connecter"
-					class="form-btn primary-default-btn transparent-btn">Se
-					connecter</button>
-			</form>
-			<c:if test="${erreur_connexion==1}">
-
-				<div id="alert" class="alert alert-danger text-center my-2 p-0">
-					<strong>Echec !</strong> données incorrecte ou email inconnu.
+				<b>Vérifiez votre boîte mail !</b>
+				<div class="text-center m-4">
+				<a class="text-primary" href='<c:url value="/Signin"></c:url>'>Retour</a>
 				</div>
-			</c:if>
+			</form>
+			
 		</article>
 		<!-- ALERT -->
 

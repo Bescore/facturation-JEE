@@ -34,7 +34,7 @@
 <!-- printThis -->
 <script defer src="js/printThis.js"></script>
 <!-- genererFacture -->
-<script defer src="js/genererFacture.js"></script>
+<script defer src="js/imprimerFacture.js"></script>
 <!-- Alerts -->
 <script defer src="js/modal_alert.js"></script>
 <!-- Chart library -->

@@ -59,7 +59,8 @@
 											class="rounded-circle img-fluid" style="width: 150px;">
 										<h5 class="my-4">${prenom } ${nom}</h5>
 										<p class="text-muted mb-4">Entrepreneur</p>
-										<button type="submit" name="modifier" class="btn btn-outline-primary">Modifier</button>
+										<button type="submit" name="modifier"
+											class="btn btn-outline-primary">Modifier</button>
 
 									</div>
 								</div>
@@ -197,7 +198,8 @@
 										</div>
 										<div class="mb-3 ">
 											<label for="exampleInputPassword1" class="form-label">Téléphone</label>
-											<input name="telephone" value="${modifier_utilisateur.telephone }"
+											<input name="telephone"
+												value="${modifier_utilisateur.telephone }"
 												title="numéro de téléphone exclusivement" type="number"
 												class="form-control border" id="exampleInputPassword1">
 										</div>
@@ -210,16 +212,35 @@
 										</div>
 										<div class="mb-3 ">
 											<label for="exampleInputPassword1" class="form-label">Adresse</label>
-											<input name="adresse" value="${modifier_utilisateur.adresse }"
-												title="ex: 2 rue Brassens..PAS D'ESPACES À LA FIN"
-												type="text" class="form-control border"
-												id="exampleInputPassword1">
+											<c:if test="${!empty modifier_utilisateur.adresse }">
+												<input name="adresse"
+													value="${modifier_utilisateur.adresse }"
+													title="ex: 2 rue Brassens..PAS D'ESPACES À LA FIN"
+													type="text" class="form-control border"
+													id="exampleInputPassword1">
+											</c:if>
+											<c:if test="${empty modifier_utilisateur.adresse }">
+												<input name="adresse" placeholder="non renseigné"
+													title="ex: 2 rue Brassens..PAS D'ESPACES À LA FIN"
+													type="text" class="form-control border"
+													id="exampleInputPassword1">
+											</c:if>
 										</div>
 										<div class="mb-3 ">
 											<label for="exampleInputPassword1" class="form-label">Code
-												postale</label> <input min="0" size="5" name="code_postale"
-												title="code postale exclusivement" type="number" value="${modifier_utilisateur.code_postale}"
-												class="form-control border " id="exampleInputPassword1">
+												postale</label>
+											<c:if test="${ modifier_utilisateur.code_postale!=0}">
+												<input min="0" size="5" name="code_postale"
+													title="code postale exclusivement" type="number"
+													value="${modifier_utilisateur.code_postale}"
+													class="form-control border " id="exampleInputPassword1">
+											</c:if>
+											<c:if test="${ modifier_utilisateur.code_postale==0}">
+												<input min="0" size="5" name="code_postale"
+													title="code postale exclusivement" type="number"
+													placeholder="non renseigné" class="form-control border "
+													id="exampleInputPassword1">
+											</c:if>
 										</div>
 										<button name="valider" type="submit" class="btn btn-primary">
 											<i class="fa-solid fa-pencil"></i>
@@ -228,11 +249,14 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-12 col-xl-6 my-2  d-flex justify-content-center align-items-center">
+							<div
+								class="col-12 col-xl-6 my-2  d-flex justify-content-center align-items-center">
 								<div class="card">
 									<div class="card-body">
-									<img loading="lazy" alt="" src="img/avatar/avatar-illustrated-04.webp">
+										<img loading="lazy" alt=""
+											src="img/avatar/avatar-illustrated-04.webp">
 									</div>
+									<p class="text-center p-3 text-danger fw-bl"><span><i class="fa-solid fa-triangle-exclamation mx-2 fa-2x"></i></span>Tous les champs doivent être remplis pour effectuer une modification !</p>
 								</div>
 							</div>
 					</c:if>

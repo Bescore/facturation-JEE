@@ -63,9 +63,9 @@
 											clients</h6>
 
 
-										<a href="<c:url value="/Client"></c:url>"><img loading="lazy"
-											alt="clients" class="my-5" style="height: 21rem;"
-											src="img/background/clients.svg"></a>
+										<a href="<c:url value="/Client"></c:url>"><img
+											loading="lazy" alt="clients" class="my-5"
+											style="height: 21rem;" src="img/background/clients.svg"></a>
 
 
 
@@ -80,9 +80,9 @@
 										<h6 class="my-2 fw-bold">2 . Ajoutez le type de service
 											que vous fournissez</h6>
 
-										<a href="<c:url value="/TypeActivite"></c:url>"><img loading="lazy"
-											alt="business" class="my-5" style="height: 21rem;"
-											src="img/background/business.svg"></a>
+										<a href="<c:url value="/TypeActivite"></c:url>"><img
+											loading="lazy" alt="business" class="my-5"
+											style="height: 21rem;" src="img/background/business.svg"></a>
 
 									</div>
 
@@ -94,8 +94,8 @@
 										<h6 class="my-2 fw-bold">3 . Gérez vos heures et factures
 										</h6>
 
-										<img loading="lazy" alt="heure" class="my-5" style="height: 21rem;"
-											src="img/background/heure.svg">
+										<img loading="lazy" alt="heure" class="my-5"
+											style="height: 21rem;" src="img/background/heure.svg">
 
 									</div>
 
@@ -133,7 +133,7 @@
 												</select>
 												<div class="mb-3">
 													<label for="exampleInputEmail1" class="form-label my-2">Tarif
-														(par heures)</label> <input name="tarif" type="number" min="1"
+														(par heures)</label> <input name="tarif" type="number" min="1" required
 														class="form-control  border border-secondary  w-25"
 														id="exampleInputEmail1" aria-describedby="emailHelp">
 												</div>

@@ -8,19 +8,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.DemandeDao;
 import modele.GetCookie;
 
 /**
- * Servlet implementation class Statistiques
+ * Servlet implementation class DeleteDemande
  */
-@WebServlet("/Statistiques")
-public class Statistiques extends HttpServlet {
+@WebServlet("/DeleteDemande")
+public class DeleteDemande extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Statistiques() {
+    public DeleteDemande() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,13 +35,27 @@ public class Statistiques extends HttpServlet {
 		HttpSession session = request.getSession();
 		// recuperer le token en session
 		String token = String.valueOf(session.getAttribute("token"));
-
 		// on utilise la fonction qui va recuperer le cookie
 		String cookie = GetCookie.recupererCookie(request, token);
 		if (cookie.equals(token)) {
-		
-		request.getRequestDispatcher("jsp/statistiques.jsp").forward(request, response);
-		} else {
+			
+			if(request.getParameter("id")!=null &&request.getParameter("action").equals("delete")) {
+				
+				int idDemande=Integer.valueOf(request.getParameter("id"));
+				
+				//nouvelle demande
+				modele.Demande newDemande=new modele.Demande();
+				
+				newDemande.setId_demande(idDemande);
+				
+				//nouveau DemandeDao
+				DemandeDao newDemandeDao=new DemandeDao();
+				
+				//supprimer la demande
+				newDemandeDao.Delete(newDemande);
+			}
+			response.sendRedirect(request.getContextPath() + "/Demande");
+		}else {
 			response.sendRedirect(request.getContextPath() + "/Deconnexion");
 		}
 	}

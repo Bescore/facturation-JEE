@@ -90,7 +90,7 @@ public class Signin extends HttpServlet {
 
 					// Gerer cookie, mettre le token dans le cookie//
 					Cookie INC_AUTH = new Cookie("INC_AUTH", token);
-					// cookie valable 15minutes
+					// cookie valable 30minutes
 					INC_AUTH.setMaxAge(30 * 60);
 					// ajouter cookie au navigateur
 					response.addCookie(INC_AUTH);
@@ -106,7 +106,7 @@ public class Signin extends HttpServlet {
 					session.setAttribute("id_user", usertab.get(0).getId_personne());
 					session.setAttribute("token", token);
 
-					// rediriger vers la page park
+					// rediriger vers la page home
 					response.sendRedirect(request.getContextPath() + "/Home");
 				}else {
 					request.setAttribute("erreur_connexion", 1);
