@@ -4,12 +4,10 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 
 import dao.DemandeDao;
-import dao.TypeDao;
 import modele.Clients;
 import modele.Demande;
 import modele.Type;
