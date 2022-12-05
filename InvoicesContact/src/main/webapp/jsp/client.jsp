@@ -65,39 +65,39 @@
 												<input name="nom"
 													title="texte sans accents, sans caractères spéciaux"
 													type="text" class="form-control border"
-													id="exampleInputPassword1">
+													id="exampleInputPassword1" required>
 											</div>
 											<div class="mb-3 ">
 												<label for="exampleInputPassword1" class="form-label">Prenom</label>
 												<input name="prenom"
 													title="texte sans accents, sans caractères spéciaux"
 													type="text" class="form-control border"
-													id="exampleInputPassword1">
+													id="exampleInputPassword1" required>
 											</div>
 											<div class="mb-3 ">
 												<label for="exampleInputPassword1" class="form-label">Téléphone</label>
 												<input name="telephone"
 													title="numéro de téléphone exclusivement" type="number"
-													class="form-control border" id="exampleInputPassword1">
+													class="form-control border" id="exampleInputPassword1" required>
 											</div>
 											<div class="mb-3 ">
 												<label for="exampleInputPassword1" class="form-label">Email</label>
 												<input name="email"
 													title="texte sans accents, sans caractères spéciaux"
 													type="text" class="form-control border"
-													id="exampleInputPassword1">
+													id="exampleInputPassword1" required>
 											</div>
 											<div class="mb-3 ">
 												<label for="exampleInputPassword1" class="form-label">Adresse</label>
 												<input name="adresse" title="ex: 2 rue Brassens..PAS D'ESPACES À LA FIN"
 													type="text" class="form-control border"
-													id="exampleInputPassword1">
+													id="exampleInputPassword1" required>
 											</div>
 											<div class="mb-3 ">
 												<label for="exampleInputPassword1" class="form-label">Code
 													postale</label> <input min="0" size="5" name="code_postale"
 													title="code postale exclusivement" type="number"
-													class="form-control border" id="exampleInputPassword1">
+													class="form-control border" id="exampleInputPassword1" required>
 											</div>
 											<button name="valider" type="submit" class="btn btn-primary">
 												<i class="fa-solid fa-user-plus"></i>
@@ -209,47 +209,47 @@
 										<form method="post">
 											<div class="mb-3 ">
 												<input name="idClient" hidden="hidden"
-													value="${client_a_modifier.id_personne}"> <label
+													value="${client_a_modifier.id_personne}" required> <label
 													for="exampleInputPassword1" class="form-label">Nom</label>
 												<input name="nom" value="${client_a_modifier.nom }"
 													title="texte sans accents, sans caractères spéciaux"
 													type="text" class="form-control border"
-													id="exampleInputPassword1">
+													id="exampleInputPassword1" required>
 											</div>
 											<div class="mb-3 ">
 												<label for="exampleInputPassword1" class="form-label">Prenom</label>
 												<input name="prenom" value="${client_a_modifier.prenom }"
 													title="texte sans accents, sans caractères spéciaux"
 													type="text" class="form-control border"
-													id="exampleInputPassword1">
+													id="exampleInputPassword1" required>
 											</div>
 											<div class="mb-3 ">
 												<label for="exampleInputPassword1" class="form-label">Téléphone</label>
 												<input name="telephone"
 													value="${client_a_modifier.telephone }"
 													title="numéro de téléphone exclusivement" type="number"
-													class="form-control border" id="exampleInputPassword1">
+													class="form-control border" id="exampleInputPassword1" required>
 											</div>
 											<div class="mb-3 ">
 												<label for="exampleInputPassword1" class="form-label">Email</label>
 												<input name="email" value="${client_a_modifier.email}"
 													title="texte sans accents, sans caractères spéciaux"
 													type="text" class="form-control border"
-													id="exampleInputPassword1">
+													id="exampleInputPassword1" required>
 											</div>
 											<div class="mb-3 ">
 												<label for="exampleInputPassword1" class="form-label">Adresse</label>
 												<input name="adresse" value="${client_a_modifier.adresse }"
 													title="ex: 2 rue Brassens.. PAS D'ESPACES À LA FIN"
 													type="text" class="form-control border"
-													id="exampleInputPassword1">
+													id="exampleInputPassword1" required>
 											</div>
 											<div class="mb-3 ">
 												<label for="exampleInputPassword1" class="form-label">Code
 													postale</label> <input name="code_postale" min="0" size="5"
 													value="${client_a_modifier.code_postale }"
 													title="code postale exclusivement" type="number"
-													class="form-control border" id="exampleInputPassword1">
+													class="form-control border" id="exampleInputPassword1" required>
 											</div>
 											<button name="modifier" type="submit" class="btn btn-primary">
 												<i class="fa-regular fa-pen-to-square mx-4"></i>
