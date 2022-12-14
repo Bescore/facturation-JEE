@@ -11,10 +11,11 @@ import modele.Demande;
 import modele.Type;
 
 public class DemandeDao implements Interface <Demande> {
-	Connection connect = new ConnectionBDD().getConnection();
+	
 	@Override
 	public boolean Create(Demande object) {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 		try {
 			PreparedStatement sql = connect.prepareStatement("INSERT INTO demande (client,type,date,heure,duree) VALUES(?,?,?,?,?)");
 			
@@ -26,6 +27,7 @@ public class DemandeDao implements Interface <Demande> {
 			
 			sql.executeUpdate();
 			sql.close();
+			connect.close();
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -37,6 +39,7 @@ public class DemandeDao implements Interface <Demande> {
 	@Override
 	public ArrayList<Demande> Read() {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 		ArrayList<Demande> demandeTab = new ArrayList<Demande>();
 		try {
 
@@ -74,6 +77,7 @@ public class DemandeDao implements Interface <Demande> {
 			}
 			sql.close();
 			rs.close();
+			connect.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.getMessage();
@@ -90,6 +94,7 @@ public class DemandeDao implements Interface <Demande> {
 	@Override
 	public boolean Delete(Demande object) {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 		try {
 			PreparedStatement sql = connect.prepareStatement("DELETE FROM demande WHERE id_demande=?");
 			
@@ -97,6 +102,7 @@ public class DemandeDao implements Interface <Demande> {
 			
 			sql.executeUpdate();
 			sql.close();
+			connect.close();
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception

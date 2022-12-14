@@ -9,10 +9,11 @@ import modele.ConnectionBDD;
 import modele.Type;
 
 public class TypeDao implements Interface <Type> {
-	Connection connect = new ConnectionBDD().getConnection();
+	
 	@Override
 	public boolean Create(Type object) {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 		try {
 			PreparedStatement sql = connect.prepareStatement("INSERT INTO type (type_mission) VALUES(?)");
 			
@@ -20,6 +21,7 @@ public class TypeDao implements Interface <Type> {
 			
 			sql.executeUpdate();
 			sql.close();
+			connect.close();
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -31,6 +33,7 @@ public class TypeDao implements Interface <Type> {
 	@Override
 	public ArrayList<Type> Read() {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 		ArrayList<Type> typeTab = new ArrayList<Type>();
 		try {
 
@@ -51,6 +54,7 @@ public class TypeDao implements Interface <Type> {
 			}
 			sql.close();
 			rs.close();
+			connect.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.getMessage();
@@ -61,6 +65,7 @@ public class TypeDao implements Interface <Type> {
 	@Override
 	public boolean Update(Type object) {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 		try {
 			PreparedStatement sql = connect.prepareStatement("Update type SET type_mission=? WHERE id_type=?");
 			
@@ -69,6 +74,7 @@ public class TypeDao implements Interface <Type> {
 			
 			sql.executeUpdate();
 			sql.close();
+			connect.close();
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -80,6 +86,7 @@ public class TypeDao implements Interface <Type> {
 	@Override
 	public boolean Delete(Type object) {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 		try {
 			PreparedStatement sql = connect.prepareStatement("DELETE FROM type WHERE id_type=?");
 			
@@ -87,6 +94,7 @@ public class TypeDao implements Interface <Type> {
 			
 			sql.executeUpdate();
 			sql.close();
+			connect.close();
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception

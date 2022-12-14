@@ -11,11 +11,12 @@ import modele.ConnectionBDD;
 import modele.Type;
 
 public class ActiviteDao implements Interface<ActiviteJournaliere> {
-	Connection connect = new ConnectionBDD().getConnection();
+	
 
 	@Override
 	public boolean Create(ActiviteJournaliere object) {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 		try {
 			PreparedStatement sql = connect.prepareStatement("INSERT INTO activite_journaliere (debut,date,client,type,tarif) VALUES(now(),now(),?,?,?)");
 			
@@ -25,6 +26,7 @@ public class ActiviteDao implements Interface<ActiviteJournaliere> {
 			
 			sql.executeUpdate();
 			sql.close();
+			connect.close();
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -59,6 +61,7 @@ public class ActiviteDao implements Interface<ActiviteJournaliere> {
 	
 	public ActiviteJournaliere FindbyaActiviteEnCours() {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 		try {
 
 			PreparedStatement sql = connect.prepareStatement("SELECT * FROM activite_journaliere INNER JOIN type INNER JOIN client ON activite_journaliere.client=client.id_client AND activite_journaliere.type=type.id_type AND duree_activite=0");
@@ -88,6 +91,7 @@ public class ActiviteDao implements Interface<ActiviteJournaliere> {
 				newActiviteJ.setDate(rs.getDate("date"));
 				newActiviteJ.setDebut(rs.getString("debut"));
 				
+				connect.close();
 				return newActiviteJ;
 			}
 			sql.close();
@@ -101,6 +105,7 @@ public class ActiviteDao implements Interface<ActiviteJournaliere> {
 	
 	public boolean UpdateArreterActivite() {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 		try {
 			PreparedStatement sql = connect.prepareStatement("UPDATE activite_journaliere SET duree_activite=(SELECT TIMEDIFF(now(),debut)),fin=(now()) WHERE  duree_activite=?");
 			
@@ -108,6 +113,7 @@ public class ActiviteDao implements Interface<ActiviteJournaliere> {
 			
 			sql.executeUpdate();
 			sql.close();
+			connect.close();
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -118,7 +124,7 @@ public class ActiviteDao implements Interface<ActiviteJournaliere> {
 	
 	public ArrayList<ActiviteJournaliere> RecentesActivites() {
 		// TODO Auto-generated method stub
-		
+		Connection connect = new ConnectionBDD().getConnection();
 		ArrayList<ActiviteJournaliere> ActiviteTab = new ArrayList<ActiviteJournaliere>();
 		
 		try {
@@ -154,6 +160,7 @@ public class ActiviteDao implements Interface<ActiviteJournaliere> {
 		}
 		sql.close();
 		rs.close();
+		connect.close();
 	} catch (Exception e) {
 		// TODO: handle exception
 		e.getMessage();
@@ -163,6 +170,7 @@ public class ActiviteDao implements Interface<ActiviteJournaliere> {
 	
 	public ArrayList<ActiviteJournaliere> FindbyMoisAnnee(ActiviteJournaliere object,int mois, String annee) {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 ArrayList<ActiviteJournaliere> ActiviteTab = new ArrayList<ActiviteJournaliere>();
 		//trouver les données en fonction du mois et de l'année, utilis dans "mesheures"
 		try {
@@ -215,6 +223,7 @@ ArrayList<ActiviteJournaliere> ActiviteTab = new ArrayList<ActiviteJournaliere>(
 		}
 		sql.close();
 		rs.close();
+		connect.close();
 	} catch (Exception e) {
 		// TODO: handle exception
 		e.getMessage();

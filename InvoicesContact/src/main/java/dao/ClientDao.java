@@ -9,11 +9,12 @@ import modele.Clients;
 import modele.ConnectionBDD;
 
 public class ClientDao implements Interface<Clients> {
-	Connection connect = new ConnectionBDD().getConnection();
+	
 
 	@Override
 	public boolean Create(Clients object) {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 		try {
 			PreparedStatement sql = connect.prepareStatement(
 					"INSERT INTO client (nom,prenom,telephone,email,adresse,code_postale) VALUES(?,?,?,?,?,?)");
@@ -27,6 +28,7 @@ public class ClientDao implements Interface<Clients> {
 
 			sql.executeUpdate();
 			sql.close();
+			connect.close();
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -38,6 +40,7 @@ public class ClientDao implements Interface<Clients> {
 	@Override
 	public ArrayList<Clients> Read() {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 		ArrayList<Clients> clientsTab = new ArrayList<Clients>();
 		try {
 
@@ -61,6 +64,7 @@ public class ClientDao implements Interface<Clients> {
 			}
 			sql.close();
 			rs.close();
+			connect.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.getMessage();
@@ -71,6 +75,7 @@ public class ClientDao implements Interface<Clients> {
 	@Override
 	public boolean Update(Clients object) {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 		try {
 			PreparedStatement sql = connect.prepareStatement(
 					"Update client SET nom=?,prenom=?,telephone=?,email=?,adresse=?,code_postale=? WHERE id_client=?");
@@ -85,6 +90,7 @@ public class ClientDao implements Interface<Clients> {
 
 			sql.executeUpdate();
 			sql.close();
+			connect.close();
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -96,6 +102,7 @@ public class ClientDao implements Interface<Clients> {
 	@Override
 	public boolean Delete(Clients object) {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 		try {
 			PreparedStatement sql = connect.prepareStatement("DELETE FROM client WHERE email=?");
 
@@ -103,6 +110,7 @@ public class ClientDao implements Interface<Clients> {
 
 			sql.executeUpdate();
 			sql.close();
+			connect.close();
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -119,6 +127,7 @@ public class ClientDao implements Interface<Clients> {
 
 	public Clients FindbyId(int id) {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 		try {
 
 			PreparedStatement sql = connect.prepareStatement("SELECT * FROM client WHERE id_client=?");
@@ -142,6 +151,7 @@ public class ClientDao implements Interface<Clients> {
 			}
 			sql.close();
 			rs.close();
+			connect.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.getMessage();
@@ -151,6 +161,7 @@ public class ClientDao implements Interface<Clients> {
 
 	public ArrayList<Clients> SearchClient(Clients object) {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 		ArrayList<Clients> clientsTab = new ArrayList<Clients>();
 		try {
 			PreparedStatement sql = connect.prepareStatement(
@@ -179,6 +190,7 @@ public class ClientDao implements Interface<Clients> {
 				clientsTab.add(newClients);
 			}
 			sql.close();
+			connect.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.getMessage();

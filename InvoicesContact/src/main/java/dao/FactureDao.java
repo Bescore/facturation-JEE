@@ -10,10 +10,11 @@ import modele.ConnectionBDD;
 import modele.Facture;
 
 public class FactureDao implements Interface<Facture> {
-	Connection connect = new ConnectionBDD().getConnection();
+	
 	@Override
 	public boolean Create(Facture object) {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 		try {
 			PreparedStatement sql = connect.prepareStatement("INSERT INTO facture (identifiant,somme,nbr_totale_heure,client,date) VALUES(?,?,?,?,now())");
 
@@ -24,6 +25,7 @@ public class FactureDao implements Interface<Facture> {
 
 			sql.executeUpdate();
 			sql.close();
+			connect.close();
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -35,6 +37,7 @@ public class FactureDao implements Interface<Facture> {
 	@Override
 	public ArrayList<Facture> Read() {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 		ArrayList<Facture> factureTab = new ArrayList<Facture>();
 		try {
 
@@ -66,6 +69,7 @@ public class FactureDao implements Interface<Facture> {
 			}
 			sql.close();
 			rs.close();
+			connect.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.getMessage();
@@ -82,6 +86,7 @@ public class FactureDao implements Interface<Facture> {
 	@Override
 	public boolean Delete(Facture object) {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 		try {
 			PreparedStatement sql = connect.prepareStatement("DELETE FROM facture WHERE id_facture=?");
 			
@@ -89,6 +94,7 @@ public class FactureDao implements Interface<Facture> {
 			
 			sql.executeUpdate();
 			sql.close();
+			connect.close();
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -100,6 +106,7 @@ public class FactureDao implements Interface<Facture> {
 	@Override
 	public ArrayList<Facture> Findby(Facture object) {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 		//FindByIdentifiant
 		ArrayList<Facture> factureTab = new ArrayList<Facture>();
 		try {
@@ -133,6 +140,7 @@ public class FactureDao implements Interface<Facture> {
 			}
 			sql.close();
 			rs.close();
+			connect.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.getMessage();
@@ -143,7 +151,7 @@ public class FactureDao implements Interface<Facture> {
 	
 	public int FindbyNombreFactureNonPayee() {
 		// TODO Auto-generated method stub
-
+		Connection connect = new ConnectionBDD().getConnection();
 		try {
 
 			PreparedStatement sql = connect.prepareStatement("SELECT count(*) as nombreNonPayee FROM facture WHERE payee=?");
@@ -160,6 +168,7 @@ public class FactureDao implements Interface<Facture> {
 			}
 			sql.close();
 			rs.close();
+			connect.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.getMessage();
@@ -168,7 +177,7 @@ public class FactureDao implements Interface<Facture> {
 	}
 	public int FindbyNombreFacturePayee() {
 		// TODO Auto-generated method stub
-
+		Connection connect = new ConnectionBDD().getConnection();
 		try {
 
 			PreparedStatement sql = connect.prepareStatement("SELECT count(*) as nombreNonPayee FROM facture WHERE payee=?");
@@ -185,6 +194,7 @@ public class FactureDao implements Interface<Facture> {
 			}
 			sql.close();
 			rs.close();
+			connect.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.getMessage();
@@ -194,7 +204,7 @@ public class FactureDao implements Interface<Facture> {
 	
 	public float FindbySommeTotale() {
 		// TODO Auto-generated method stub
-
+		Connection connect = new ConnectionBDD().getConnection();
 		try {
 
 			PreparedStatement sql = connect.prepareStatement("SELECT ROUND(sum(somme),2) as sommeTotale FROM facture");
@@ -209,6 +219,7 @@ public class FactureDao implements Interface<Facture> {
 			}
 			sql.close();
 			rs.close();
+			connect.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.getMessage();
@@ -217,7 +228,7 @@ public class FactureDao implements Interface<Facture> {
 	}
 	public float FindbySommeTotalePayee() {
 		// TODO Auto-generated method stub
-
+		Connection connect = new ConnectionBDD().getConnection();
 		try {
 
 			PreparedStatement sql = connect.prepareStatement("SELECT ROUND(sum(somme),2) as sommeTotalePayee FROM facture where payee=?");
@@ -234,6 +245,7 @@ public class FactureDao implements Interface<Facture> {
 			}
 			sql.close();
 			rs.close();
+			connect.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.getMessage();
@@ -243,7 +255,7 @@ public class FactureDao implements Interface<Facture> {
 	
 	public float FindbySommeTotaleNonPayee() {
 		// TODO Auto-generated method stub
-
+		Connection connect = new ConnectionBDD().getConnection();
 		try {
 
 			PreparedStatement sql = connect.prepareStatement("SELECT ROUND(sum(somme),2) as sommeTotaleNonPayee FROM facture where payee=?");
@@ -260,6 +272,7 @@ public class FactureDao implements Interface<Facture> {
 			}
 			sql.close();
 			rs.close();
+			connect.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.getMessage();
@@ -269,6 +282,7 @@ public class FactureDao implements Interface<Facture> {
 	
 	public boolean UpdatePaiementClient(Facture object) {
 		// TODO Auto-generated method stub
+		Connection connect = new ConnectionBDD().getConnection();
 		try {
 			PreparedStatement sql = connect.prepareStatement("UPDATE facture SET payee=? WHERE identifiant=?");
 
@@ -278,6 +292,7 @@ public class FactureDao implements Interface<Facture> {
 
 			sql.executeUpdate();
 			sql.close();
+			connect.close();
 			return true;
 		} catch (Exception e) {
 			// TODO: handle exception
