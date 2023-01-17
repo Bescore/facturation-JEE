@@ -1,6 +1,6 @@
 # facturation-JEE
 
-Application de gestion de facture / client. JEE NATIF / JDBC / Bootstrap
+Application de gestion de facture / client. JEE NATIF / JDBC / Bootstrap / Conception ( MERISE / UML)
 
 Features :
 
