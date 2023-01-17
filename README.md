@@ -1,6 +1,6 @@
 # facturation-JEE
 
-Application de gestion de facture / client.
+Application de gestion de facture / client. JEE NATIF / JDBC / Bootstrap
 
 Features :
 
