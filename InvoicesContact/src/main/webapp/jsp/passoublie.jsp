@@ -31,7 +31,7 @@
 	<main class="page-center">
 		<article class="sign-up">
 			<form class="sign-up-form form" method="post">
-				<b>Vérifiez votre boîte mail !</b>
+				<b>( Uniquement disponible pour le détenteur de l'application )</b>
 				<div class="text-center m-4">
 				<a class="text-primary" href='<c:url value="/Signin"></c:url>'>Retour</a>
 				</div>

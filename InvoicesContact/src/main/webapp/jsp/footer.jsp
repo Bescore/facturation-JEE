@@ -19,7 +19,7 @@
 
 <script>
 	$(document).ready(function() {
-		$('#fademe').fadeOut(500);
+		$('#fademe').fadeOut(200);
 	});
 </script>
 
